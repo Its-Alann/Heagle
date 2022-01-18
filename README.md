@@ -6,6 +6,7 @@ A brief description of the project here
 ## Team Members
 - Alice Yu-Kwan Chen
 - Emily Dang
+- Georgia Pitic
 - Harrisson Tang
 - William Tremblay
 - Alan Matthew Vadlakunta
