@@ -8,7 +8,7 @@ A brief description of the project here
 - Alice Yu-Kwan Chen - [Aykchen](https://github.com/Aykchen)
 - Emily Dang
 - Georgia Pitic
-- Harrisson Tang
+- Harrisson Tang - [harri012](https://github.com/harri012)
 - William Tremblay
 - Alan Matthew Vadlakunta - [Its-Alann](https://github.com/Its-Alann)
 - Leon Zhang
