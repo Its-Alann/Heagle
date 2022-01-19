@@ -6,7 +6,7 @@ A brief description of the project here
 ## Team Members
 [![Contributors][contributors-shield]][contributors-url]
 - Alice Yu-Kwan Chen - [Aykchen](https://github.com/Aykchen)
-- Emily Dang
+- Emily Dang - [dange2](https://github.com/dange2)
 - Harrisson Tang - [harri012](https://github.com/harri012)
 - Georgia Pitic - [georgia1515](https://github.com/georgia1515)
 - William Tremblay
