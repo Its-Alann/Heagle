@@ -10,11 +10,11 @@ A brief description of the project here
 
 - Alice Yu-Kwan Chen - [Aykchen](https://github.com/Aykchen)
 - Emily Dang
+- Harrisson Tang - [harri012](https://github.com/harri012)
 - Georgia Pitic - [georgia1515](https://github.com/georgia1515)
-- Harrisson Tang
 - William Tremblay - [WillTrem](https://github.com/WillTrem)
 - Alan Matthew Vadlakunta - [Its-Alann](https://github.com/Its-Alann)
-- Leon Zhang
+- Leon Zhang - [LeonZhang7](https://github.com/LeonZhang7)
 
 ## Technologies Used
 
