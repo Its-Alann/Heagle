@@ -5,7 +5,7 @@ A brief description of the project here
 
 ## Team Members
 [![Contributors][contributors-shield]][contributors-url]
-- Alice Yu-Kwan Chen
+- Alice Yu-Kwan Chen - [Aykchen](https://github.com/Aykchen)
 - Emily Dang
 - Georgia Pitic
 - Harrisson Tang
