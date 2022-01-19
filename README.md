@@ -10,7 +10,7 @@ A brief description of the project here
 - Georgia Pitic
 - Harrisson Tang
 - William Tremblay
-- Alan Matthew Vadlakunta
+- Alan Matthew Vadlakunta - [Its-Alann](https://github.com/Its-Alann)
 - Leon Zhang
 
 ## Technologies Used
