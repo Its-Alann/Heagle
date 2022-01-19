@@ -11,7 +11,7 @@ A brief description of the project here
 - Harrisson Tang
 - William Tremblay
 - Alan Matthew Vadlakunta - [Its-Alann](https://github.com/Its-Alann)
-- Leon Zhang
+- Leon Zhang - [LeonZhang7](https://github.com/LeonZhang7)
 
 ## Technologies Used
 These are the technologies used to build our e-commerce website
