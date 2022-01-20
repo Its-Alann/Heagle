@@ -28,6 +28,7 @@ These are the technologies used to build our e-commerce website
   - [x] Make README file
   - [ ] Task breakdown
   - [ ] Commits by all members
+  - [ ] Plan for Sprint 2
 
 - [ ] Sprint 2
 - [ ] Sprint 3
