@@ -1,7 +1,7 @@
 # E-Commerce Application - SOEN 341
 
 ## Description
-A brief description of the project here
+From the unlimited choices offered across multiple sellers to the easy access without needing to travel, it is without doubt that online shopping has grown exponentially these past years, especially during the pandemic. This e-commerce application has the main purpose of letting customers safely purchase items among the pieces posted by the sellers. After the vendors have registered and listed their items, the shoppers, who have an account, can freely browse and select any interested items, which are stored in their shopping cart. In this cart, the customers have different options such as adding, modifying the quantity of products or removing them. After they can purchase them with a safe online payment method and track their order as it will be delivered at their door. The admin has the functionality to overlook all actions performed by the sellers as well as the customers and it can thus manage any issues related with the profiles, sales or orders with the application whether it is in the front or back end.
 
 ## Team Members
 [![Contributors][contributors-shield]][contributors-url]
