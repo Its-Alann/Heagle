@@ -1,7 +1,17 @@
 # E-Commerce Application - SOEN 341
 
+## Objective
+This project aims to develop a simplified version of an e-commerce website inspired by Amazon, allowing customers to shop from an extensive range of products offered by sellers.
+
 ## Description
 From the unlimited choices offered by multiple sellers to easy access without needing to travel, it is unsurprising that online shopping has grown exponentially these past years, especially during the pandemic. This e-commerce application has the main purpose of letting customers safely purchase items among the pieces posted by the sellers. After the vendors have registered and listed their items, the shoppers, who have an account, can freely browse and select any items that interest them. These will be stored in their shopping cart. In this cart, the customers have different options such as adding, modifying the quantity of products or removing them. After, they can purchase them with a safe online payment method and track their order as it will be delivered at their door. The admin has the functionality to overlook all actions performed by the sellers as well as the customers and it can thus manage any issues related to the profiles, sales or orders whether it is in the front or back end. 
+
+## Core Features
+-	User registration 
+-	Seller functionalities (Restricted Admin Account)
+-	Admin functionalities (Inventory Management)
+-	Checkout features (Cart & Payment)
+-	Browsing through a range of products  
 
 ## Team Members
 [![Contributors][contributors-shield]][contributors-url]
