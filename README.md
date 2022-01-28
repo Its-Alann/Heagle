@@ -23,6 +23,8 @@ From the unlimited choices offered by multiple sellers to easy access without ne
 - Alan Matthew Vadlakunta - [Its-Alann](https://github.com/Its-Alann)
 - Leon Zhang - [LeonZhang7](https://github.com/LeonZhang7)
 
+The roles assigned to each memeber can be found [here](https://github.com/Its-Alann/groupD-soen341project2022/wiki/Task-Breakdown)
+
 ## Technologies Used
 These are the technologies used to build our e-commerce website
 
@@ -39,9 +41,9 @@ TBD
 - [ ] [Sprint 1](https://moodle.concordia.ca/moodle/pluginfile.php/5314863/mod_assign/introattachment/0/SOEN%20341%20Project%20Description%20and%20Sprint%201.docx?forcedownload=1)
   - [x] GitHub initiation
   - [x] Make README file
-  - [ ] Task breakdown
+  - [x] Task breakdown
   - [ ] Commits by all members
-  - [ ] Plan for Sprint 2
+  - [x] Plan for Sprint 2
 
 - [ ] Sprint 2
 - [ ] Sprint 3
