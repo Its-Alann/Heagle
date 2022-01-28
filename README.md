@@ -35,7 +35,9 @@ These are the technologies used to build our e-commerce website
 | MySQL | [![MySQL][mysql-shield]](https://www.mysql.com/) |
 
 ## Language Used
-TBD
+- HTML
+- CSS
+- JavaScript
 
 ## Progress
 - [ ] [Sprint 1](https://moodle.concordia.ca/moodle/pluginfile.php/5314863/mod_assign/introattachment/0/SOEN%20341%20Project%20Description%20and%20Sprint%201.docx?forcedownload=1)
