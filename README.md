@@ -48,6 +48,15 @@ These are the technologies used to build our e-commerce website
   - [x] Plan for Sprint 2
 
 - [ ] Sprint 2
+  - [x] User Story 
+    - [x] Labelling and Formating
+    - [x] Task Breakdown
+    - [x] Story Point 
+  - [ ] Feature 1: Item Browsing
+    - [ ] Acceptance Test
+    - [ ] Risk Assesement  
+  - [ ] Plan for Sprint 3
+
 - [ ] Sprint 3
 - [ ] Sprint 4
 
