@@ -1,4 +1,6 @@
 # E-Commerce Application - SOEN 341
+## Link to the website
+https://heagle.herokuapp.com/
 
 ## Objective
 This project aims to develop a simplified version of an e-commerce website inspired by Amazon, allowing customers to shop from an extensive range of products offered by sellers.
