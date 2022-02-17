@@ -1,23 +1,28 @@
-import logo from './logo.svg';
+
 import './App.css';
+import { BrowserRouter as Router, Route, Routes, Link} from 'react-router-dom'
+import Electronics from './components/categories/electronics'
+import Clothes from './components/categories/clothes'
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Heagle.com is under construction
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router>
+
+        <h1> Navbar </h1>
+        <Link to="/"> Home </Link>
+        <Link to="/electronics"> Electronics </Link>
+        <Link to="/clothes"> Clothings </Link>
+
+        <Routes>
+          <Route path="/clothes" exact element={<Clothes />} />
+          <Route path ="/electronics" exact element={<Electronics/>}/>
+        </Routes>
+        {/* <h2> Food </h2> */}
+        
+        <h1> Footer</h1>
+
+      </Router>
     </div>
   );
 }
