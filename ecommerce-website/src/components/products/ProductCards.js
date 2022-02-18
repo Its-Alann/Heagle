@@ -2,6 +2,7 @@ import React from "react";
 import Products from '../../tempItemsDatabase'
 import {Card, Button, Container, Row} from 'react-bootstrap'
 import { Link } from "react-router-dom";
+import './Products.css';
 
 const ProductCards = () => {
 
@@ -10,17 +11,29 @@ const ProductCards = () => {
         <div className="card" key={item.id}>
             <Link to={`/${item.type}/${item.id}`}>
             <div className="card-img">
-                <img src={item.image} alt="" />
+                <img src={item.image} className="image" alt="" />
             </div>
             </Link>
             <div className="card-header">
+
                 <Card.Body>                         
                     <Link to={`/${item.type}}/${item.id}`}>
-                    <Card.Title> {item.name} </Card.Title>
+                    <Card.Title className="card-title"> {item.name} </Card.Title>
                     </Link>
-                    <Card.Text> {item.description} </Card.Text>
-                    <Card.Text> {item.price}{item.currency} </Card.Text>
-                    <Button className="btn"> Add to Card </Button>
+                    <Card.Text className="card-text"> {item.description} </Card.Text>
+                    <Card.Text className="card-price"> {item.price}{item.currency} </Card.Text>
+                    <div className="button">
+                        <Button className="btn"> Add to Card </Button>
+                    </div>
+
+//                 <Card.Body>
+//                     <Card.Title className="card-title"> {item.name} </Card.Title>
+//                     <Card.Text className="card-text"> {item.description} </Card.Text>
+//                     <Card.Text className="card-price"> {item.price}{item.currency} </Card.Text>
+//                     <div className="button">
+//                         <Button className="btn"> Add to Card </Button>
+//                     </div>
+
                 </Card.Body>
             </div>
         </div>
