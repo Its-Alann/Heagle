@@ -1,9 +1,9 @@
 
 import './App.css';
 import { BrowserRouter as Router, Route, Routes, Link} from 'react-router-dom'
-import Electronics from './components/categories/electronics'
-import Clothes from './components/categories/clothes'
-import Food from './components/categories/food'
+import Electronics from './components/categories/Electronics'
+import Clothes from './components/categories/Clothes'
+import Food from './components/categories/Food'
 
 function App() {
   return (
