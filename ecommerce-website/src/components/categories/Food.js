@@ -1,4 +1,4 @@
-import ProductCards from './../products/ProductCards'
+import ProductCards from '../products/ProductCards'
 
 
 const food = () => {
