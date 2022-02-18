@@ -9,14 +9,16 @@ const ProductCards = () => {
     
         <div className="card" key={item.id}>
             <div className="card-img">
-                <img src={item.image} alt="" />
+                <img src={item.image} className="image" alt="" />
             </div>
             <div className="card-header">
                 <Card.Body>
                     <Card.Title className="card-title"> {item.name} </Card.Title>
                     <Card.Text className="card-text"> {item.description} </Card.Text>
                     <Card.Text className="card-price"> {item.price}{item.currency} </Card.Text>
-                    <Button className="btn"> Add to Card </Button>
+                    <div className="button">
+                        <Button className="btn"> Add to Card </Button>
+                    </div>
                 </Card.Body>
             </div>
         </div>
