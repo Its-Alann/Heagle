@@ -1,15 +1,20 @@
 import React from "react";
 // import Rating from "../components/homeComponents/Rating";
-import { Link } from "react-router-dom";
 // import Message from "./../components/LoadingError/Error";
 import items from '../../tempItemsDatabase'
 import './Products.css'
+import { useParams } from "react-router-dom";
+
 // import Axios from "axios";
 
 const IndividualProductPage = ({ match }) => {
-  console.log(items.find( ({id}) => id === match.params.id))
+  const pageId = useParams();
+  const findItem = items.find(({id}) => id === pageId.id);
   
-  const product = items.find((p) => p.id === this.props.match.params.id);
+  console.log(findItem);
+  //console.log(items.find( ({id}) => id === match.params.id));
+  const product = findItem;
+  
 
 //   Axios.get("http://localhost:3002/product").then((response) => {
 //     // console.log(response);

@@ -23,6 +23,9 @@ function App() {
           <Route path ="/electronics" exact element={<Electronics/>}/>
           <Route path="/food" exact element={<Food />} />
           <Route path="/electronics/:id" element={<IndividualProductPage />} />
+          <Route path="/clothes/:id" element={<IndividualProductPage />} />
+          <Route path="/food/:id" element={<IndividualProductPage />} />
+
         </Routes>
         {/* <h2> Food </h2> */}
         

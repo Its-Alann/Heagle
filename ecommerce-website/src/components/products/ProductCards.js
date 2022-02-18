@@ -8,14 +8,14 @@ const ProductCards = () => {
     const listItems = Products.map((item) =>
     
         <div className="card" key={item.id}>
-            <Link to={`/electronics/${item.id}`}>
+            <Link to={`/${item.type}/${item.id}`}>
             <div className="card-img">
                 <img src={item.image} alt="" />
             </div>
             </Link>
             <div className="card-header">
                 <Card.Body>                         
-                    <Link to={`/electronics/${item.id}`}>
+                    <Link to={`/${item.type}}/${item.id}`}>
                     <Card.Title> {item.name} </Card.Title>
                     </Link>
                     <Card.Text> {item.description} </Card.Text>

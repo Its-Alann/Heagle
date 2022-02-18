@@ -7,7 +7,8 @@ const items = [
         description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
         price: 0,
         currency: "$",
-        image: "https://dummyimage.com/285x300/#F4F5F"
+        image: "https://dummyimage.com/285x300/#F4F5F",
+        type: "clothes"
 
     },
 
@@ -17,8 +18,8 @@ const items = [
         description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
         price: 0,
         currency: "$",
-        image: "https://dummyimage.com/285x300/#F4F5F"
-
+        image: "https://dummyimage.com/285x300/#F4F5F",
+        type: "electronics"
     },
 
     {
@@ -27,8 +28,8 @@ const items = [
         description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
         price: 0,
         currency: "$",
-        image: "https://dummyimage.com/285x300/#F4F5F"
-
+        image: "https://dummyimage.com/285x300/#F4F5F",
+        type: "food"
     },
 
     {
@@ -37,8 +38,8 @@ const items = [
         description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
         price: 0,
         currency: "$",
-        image: "https://dummyimage.com/285x300/#F4F5F"
-
+        image: "https://dummyimage.com/285x300/#F4F5F",
+        type: "electronics"
     },
 
     {
