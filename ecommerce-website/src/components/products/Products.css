@@ -11,7 +11,7 @@
     border-radius: 0 !important;
 }
 .image{
-    max-width: 100%;
+    width: 100%;
     height: auto;
 }
 .card-header{
