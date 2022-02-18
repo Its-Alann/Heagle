@@ -13,9 +13,9 @@ const ProductCards = () => {
             </div>
             <div className="card-header">
                 <Card.Body>
-                    <Card.Title> {item.name} </Card.Title>
-                    <Card.Text> {item.description} </Card.Text>
-                    <Card.Text> {item.price}{item.currency} </Card.Text>
+                    <Card.Title className="card-title"> {item.name} </Card.Title>
+                    <Card.Text className="card-text"> {item.description} </Card.Text>
+                    <Card.Text className="card-price"> {item.price}{item.currency} </Card.Text>
                     <Button className="btn"> Add to Card </Button>
                 </Card.Body>
             </div>
