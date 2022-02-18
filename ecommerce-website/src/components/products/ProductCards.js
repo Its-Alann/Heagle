@@ -1,6 +1,7 @@
 import React from "react";
 import Products from '../../tempItemsDatabase'
 import {Card, Button, Container, Row} from 'react-bootstrap'
+import './Products.css';
 
 const ProductCards = () => {
 
