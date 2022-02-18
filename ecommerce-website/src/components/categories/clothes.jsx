@@ -1,8 +1,11 @@
+import ProductCards from '../products/ProductCards'
 
 const clothes = () => {
   return (
-    <div>
-        <h1> Clothing Page </h1>
+
+    <div className='electronics-page'>
+      <h1> Clothing </h1>
+      <ProductCards />
     </div>
   )
 }
