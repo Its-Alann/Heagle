@@ -1,0 +1,41 @@
+
+@import url('https://fonts.googleapis.com/css?family=Abel&display=swap');
+.card{
+    font-family: Abel;
+    margin-bottom: 30px;
+    border: 0px solid #FFFFFF !important;
+    border-radius: 0 !important;
+}
+.card-img{
+    width: 100%;
+    background-color: #f4f5f7;
+    border-radius: 0 !important;
+}
+.image{
+    max-width: 100%;
+    height: auto;
+}
+.card-header{
+    text-align: left;
+    background-color: #f4f5f7 !important;
+    padding-left:10px;
+    padding-top:10px;
+}
+.card-title{
+    font-size:24px;
+    color:#3A3A3A;
+}
+.card-text{
+    font-size:16px;
+    color:#969696;
+}
+.card-price{
+    font-size:20px;
+    color:#686969;
+}
+.button{
+    text-align:center;
+}
+.btn{
+    background-color: #1880A2 !important;
+}
