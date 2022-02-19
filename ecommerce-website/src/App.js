@@ -3,7 +3,6 @@ import './App.css';
 import Axios from 'axios';
 import { useState } from "react";
 
-
 function App() {
   //States
   const [email, setEmail] = useState("");
@@ -11,8 +10,8 @@ function App() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
 
-  const registerUser = ()=>{
-    Axios.post("https://localhost:3001/registerUser", {
+  const registerUserDev = ()=>{
+    Axios.post("http://localhost:3001/registerUser", {
       email: email,
       password: password,
       firstName: firstName,
@@ -31,7 +30,7 @@ function App() {
       <input type="text" onChange={(event)=> setFirstName(event.target.value)}></input>
       <label>LastName</label>
       <input type="text" onChange={(event)=> setLastName(event.target.value)}></input>
-      <button onClick={registerUser}>Register</button>
+      <button onClick={registerUserDev}>Register</button>
     </div>
   );
 }
