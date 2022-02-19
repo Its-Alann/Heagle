@@ -9,7 +9,7 @@ const ProductCards = () => {
     const listItems = Products.map((item) =>
     
         <div className="card" key={item.id}>
-            <Link to={`/${item.type}/${item.id}`}>
+            <Link to={`/${item.type}/${item.id}`} style={{ textDecoration: 'none' }}>
             <div className="card-img">
                 <img src={item.image} className="image" alt="" />
             </div>
@@ -17,7 +17,7 @@ const ProductCards = () => {
             <div className="card-header">
 
                 <Card.Body>                         
-                    <Link to={`/${item.type}}/${item.id}`}>
+                    <Link to={`/${item.type}/${item.id}`} style={{ textDecoration: 'none' }}>
                     <Card.Title className="card-title"> {item.name} </Card.Title>
                     </Link>
                     <Card.Text className="card-text"> {item.description} </Card.Text>
@@ -25,16 +25,8 @@ const ProductCards = () => {
                     <div className="button">
                         <Button className="btn"> Add to Card </Button>
                     </div>
-
-//                 <Card.Body>
-//                     <Card.Title className="card-title"> {item.name} </Card.Title>
-//                     <Card.Text className="card-text"> {item.description} </Card.Text>
-//                     <Card.Text className="card-price"> {item.price}{item.currency} </Card.Text>
-//                     <div className="button">
-//                         <Button className="btn"> Add to Card </Button>
-//                     </div>
-
-                </Card.Body>
+                </Card.Body> 
+                
             </div>
         </div>
     )
