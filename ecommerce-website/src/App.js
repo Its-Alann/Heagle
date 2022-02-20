@@ -6,6 +6,7 @@ import Clothes from './components/categories/Clothes'
 import Food from './components/categories/Food'
 import IndividualProductPage from "./components/products/IndividualProductPage" 
 import Footer from './components/Footer'
+import Navbar from './components/Navbar'
 
 function App() {
   return (
@@ -13,7 +14,7 @@ function App() {
     <div className="App">
       <Router>
 
-        <h1> Navbar </h1>
+        <Navbar/>
         <Link to="/"> Home </Link>
         <Link to="/electronics"> Electronics </Link>
         <Link to="/clothes"> Clothing </Link>
