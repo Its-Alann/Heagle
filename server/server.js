@@ -10,7 +10,7 @@ app.use(express.json());
 
 app.use(function(req, res, next) {
 	res.header("Access-Control-Allow-Origin", "https://heagle.herokuapp.com"); // update to match the domain you will make the request from
-	//res.header("Access-Control-Allow-Origin", "http://localhost:3000"); // update to match the domain you will make the request from
+	res.header("Access-Control-Allow-Origin", "http://localhost:3000"); // update to match the domain you will make the request from
 	res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
 	next();
   });
@@ -39,7 +39,7 @@ app.get("/fetchProductList", (req, res)=>{
 	const sqlQuery = 
 	`SELECT * FROM  e5zkwad79wtbvjrc.products
 	`
-	database.query(sqlQuery, (err, result) =>{
+	db.query(sqlQuery, (err, result) =>{
 		if(err){
 			console.log(err);
 		}
@@ -60,7 +60,7 @@ app.post("/registerUser", (req, res) =>{
 		`INSERT INTO e5zkwad79wtbvjrc.temp_users (email, password, firstName, lastName)
 		VALUES (?,?,?,?)`;
 
-	database.query(sqlQuery, [email, password, firstName, lastName], (err, result)=>{
+	db.query(sqlQuery, [email, password, firstName, lastName], (err, result)=>{
 		if(err){
 			console.log(err);
 		}
