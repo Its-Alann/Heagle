@@ -12,7 +12,7 @@ app.use(express.json());
 	// console.log("Server in running on part 3001")
 //})
 
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 8080;
 app.listen(PORT);
 
 app.get("/getProduct/:id", (req, res) => {
