@@ -8,7 +8,7 @@ app.use(cors());
 app.use(express.json()); 
 
 //connect to mysql
-app.listen(8080, () => {
+app.listen(3001, () => {
 	// console.log("Server in running on part 3001")
 })
 
