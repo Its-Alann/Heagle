@@ -40,6 +40,19 @@ app.post("/registerUser", (req, res) =>{
 	})
 })
 
+app.get("/fetchProductList", (req, res)=>{
+	const sqlQuery = 
+	`SELECT * FROM  e5zkwad79wtbvjrc.products
+	`
+	database.query(sqlQuery, (err, result) =>{
+		if(err){
+			console.log(err);
+		}
+		else{
+			res.send(result);
+		}
+	})
+})
 
 const PORT = process.env.PORT || 3001;
 app.listen(PORT);

@@ -7,24 +7,12 @@ import Electronics from './components/categories/Electronics'
 import Clothes from './components/categories/Clothes'
 import Food from './components/categories/Food'
 import IndividualProductPage from "./components/products/IndividualProductPage"
+import fetchProductListFromDbDev from './dbFunctions/fetchProductFromDb';
 
 function App() {
   //States
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-
-  const registerUserDev = ()=>{
-    Axios.post("http://localhost:3001/registerUser", {
       email: email,
-      password: password,
-      firstName: firstName,
-      lastName: lastName
-    }).then(()=>{
-      console.log("User successfully registered")
-    })
-  }
+  
   return (
     // <IndividualProductPage />
     <div className="App">
@@ -50,7 +38,7 @@ function App() {
         <h1> Footer</h1>
 
       </Router>
-      
+      <button onClick={fetchProductListFromDbDev}>Fetch Products From Database</button>
     </div>
   );
 }
