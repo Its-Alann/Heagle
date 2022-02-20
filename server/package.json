@@ -5,7 +5,8 @@
     "mysql": "^2.18.1"
   },
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "devStart": "nodemon server.js"
   },
   "name": "server",
   "version": "1.0.0",

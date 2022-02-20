@@ -17,7 +17,7 @@ const IndividualProductPage = ({ match }) => {
   const [selectedProductImageUrl, setImageUrl ]= useState("");
 
   useEffect(()=> {
-      const getProductFromServer = "http://localhost:3001/getProduct/" + pageId.id
+      const getProductFromServer = "https://heagle-backend.herokuapp.com/getProduct/" + pageId.id
       Axios.get(getProductFromServer).then((response) => {
           setName(response.data[0].name);
           setDescription(response.data[0].description);

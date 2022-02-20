@@ -1,5 +1,7 @@
 
 import './App.css';
+import Axios from 'axios';
+import { useState } from "react";
 import { BrowserRouter as Router, Route, Routes, Link} from 'react-router-dom'
 import Electronics from './components/categories/Electronics'
 import Clothes from './components/categories/Clothes'
@@ -10,6 +12,8 @@ import Footer from './components/Footer'
 import Navbar from './components/Navbar'
 
 function App() {
+  //States
+  
   return (
     // <IndividualProductPage />
     <div className="App">
