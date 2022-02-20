@@ -69,10 +69,7 @@ const IndividualProductPage = ({ match }) => {
                 <strong>John Doe</strong>
                 <span> Feb 17 2022</span>
                 <div className="alert alert-info mt-3">
-                  Lorem Ipsum is simply dummy text of the printing and typesetting
-                  industry. Lorem Ipsum has been the industry's standard dummy
-                  text ever since the 1500s, when an unknown printer took a galley
-                  of type and scrambled it to make a type specimen book
+                  Yes, I would recommend this to a friend.
                 </div>
               </div>
           </div>
