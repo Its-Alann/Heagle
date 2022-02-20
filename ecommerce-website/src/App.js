@@ -4,9 +4,8 @@ import { BrowserRouter as Router, Route, Routes, Link} from 'react-router-dom'
 import Electronics from './components/categories/Electronics'
 import Clothes from './components/categories/Clothes'
 import Food from './components/categories/Food'
-import IndividualProductPage from "./components/products/IndividualProductPage"
+import IndividualProductPage from "./components/products/IndividualProductPage" 
 import Footer from './components/Footer'
-
 
 function App() {
   return (
@@ -35,7 +34,7 @@ function App() {
 
       </Router>
       
-    </div>
+    </div> 
   );
 }
 

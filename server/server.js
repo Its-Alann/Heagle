@@ -1,15 +1,28 @@
 const express = require("express"); //Imports express
 const app = express();
-const cors = require('cors');
-const { db } = require("./db");
+const cors = require('cors')
+const mySql = require('mysql')
+const db = require('./db');
 
 app.use(cors());
-app.use(express.json());
+app.use(express.json()); 
 
-app.get("/product", (req, res) => {
-	res.send("Hello World!");
-	db.query("SELECT * FROM ")
-});
+//connect to mysql
+app.listen(3001, () => {
+	// console.log("Server in running on part 3001")
+})
 
-const PORT = process.env.PORT || 3001;
-app.listen(PORT);
+app.get("/getProduct/:id", (req, res) => {
+	const searchId = req.params.id;
+	const sqlQuery = "SELECT * FROM e5zkwad79wtbvjrc.products WHERE id='" + searchId + "'"
+	db.query(sqlQuery, (err, results) => {
+	if(err) {
+		throw err
+	} else {
+		res.send(results);
+	}
+  	}) 
+})
+
+// const PORT = process.env.PORT || 3001;
+// app.listen(PORT);
