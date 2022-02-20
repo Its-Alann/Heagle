@@ -1,0 +1,25 @@
+.page-footer {
+
+background-color: gray;
+position: fixed;
+left: 0;
+bottom: 0;
+width: 100%;
+color: white;
+height: 11%;
+
+}
+
+a.footer-link:hover{
+
+    color: rgb(0, 204, 255);
+}
+
+.footer-link{
+
+    text-decoration: none;
+    color: white;
+    
+
+}
+
