@@ -51,7 +51,7 @@ These are the technologies used to build our e-commerce website
 
 - [ ] Sprint 2
   - [x] User Story 
-    - [x] Labelling and Formating
+    - [x] Labelling and Formatting
     - [x] Task Breakdown
     - [x] Story Point 
   - [ ] Feature 1: Item Browsing
