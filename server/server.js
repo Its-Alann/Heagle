@@ -8,9 +8,12 @@ app.use(cors());
 app.use(express.json()); 
 
 //connect to mysql
-app.listen(3001, () => {
-	// console.log("Server in running on part 3001")
-})
+// app.listen(3001, () => {
+// 	// console.log("Server in running on part 3001")
+// })
+
+const PORT = process.env.PORT || 3001;
+app.listen(PORT);
 
 app.get("/getProduct/:id", (req, res) => {
 	const searchId = req.params.id;
@@ -23,6 +26,3 @@ app.get("/getProduct/:id", (req, res) => {
 	}
   	}) 
 })
-
-// const PORT = process.env.PORT || 3001;
-// app.listen(PORT);
