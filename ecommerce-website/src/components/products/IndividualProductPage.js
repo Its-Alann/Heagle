@@ -100,5 +100,4 @@ const IndividualProductPage = ({ match }) => {
     </>
   );
 };
-
 export default IndividualProductPage;
