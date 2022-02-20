@@ -7,7 +7,6 @@ import Food from './components/categories/Food'
 import IndividualProductPage from "./components/products/IndividualProductPage" 
 import Footer from './components/Footer'
 import Navbar from './components/Navbar'
-import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (
