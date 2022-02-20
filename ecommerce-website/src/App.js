@@ -11,7 +11,6 @@ import fetchProductListFromDbDev from './dbFunctions/fetchProductFromDb';
 
 function App() {
   //States
-      email: email,
   
   return (
     // <IndividualProductPage />
