@@ -8,14 +8,13 @@ const Footer = () => {
       <div className="row">
         <div className="col-md-5 mt-md-0 mt-3">
           <h3 className="heagle-logo">
-          {/*<img
+          <img
                 alt=""
                 src={require('./../images/heaglw-logo-transparent-v2.png')}
                 width="100"
                 height="100"
                 className="heagle-logo"
               />{' '}
-          */}
           </h3> 
           <p className='heagle-content'>Content about Heagle.</p>
         </div>
