@@ -52,15 +52,16 @@ const IndividualProductPage = ({ match }) => {
                     <span>In Stock</span>
                   </div>
 
-                  <div className="add-button">
-                    <button className="AddButton">+</button>
+                  <div className="minus-button">
+                    <button className="MinusButton">-</button>
                   </div>
                   <div className="quantity">
                     <p className="quantityNum" id="quantity">1</p>
                   </div>
-                  <div className="minus-button">
-                    <button className="MinusButton">-</button>
+                  <div className="add-button">
+                    <button className="AddButton">+</button>
                   </div>
+                  
 
                   <div className="alert  mt-3">
                     <button className="SingleProductButton">Add To Cart</button>
