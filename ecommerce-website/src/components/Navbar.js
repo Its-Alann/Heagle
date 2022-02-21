@@ -1,14 +1,23 @@
 import React, { Component } from 'react'
 import {Navbar, Nav, NavDropdown, Form, FormControl, Button, Container} from 'react-bootstrap'
 import{Link} from "react-router-dom"
+import "./Navbar.css"
 
 export default class NavbarMenu extends Component {
   render() {
     return (
       <div>
-        <Navbar bg="light" expand="lg">
+        <Navbar bg="" expand="lg">
         <Container fluid>
-            <Navbar.Brand href="#">Heagle Logo</Navbar.Brand>
+            <Navbar.Brand href='https://heagle.herokuapp.com/'>
+            <img
+                alt="Logo"
+                src={require('./../images/heaglw-logo-transparent-v2.png')}
+                width="100"
+                height="100"
+                className="heagle-logo"
+            />
+            </Navbar.Brand>
             <Navbar.Toggle aria-controls="navbarScroll" />
             <Navbar.Collapse id="navbarScroll">
             <Nav

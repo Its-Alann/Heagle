@@ -3,12 +3,20 @@ import './Footer.css'
 
 const Footer = () => {
   return (
-    <footer className="page-footer">
+    <footer className="mt-auto">
     <div className="container-fluid text-center text-md-left">
       <div className="row">
         <div className="col-md-5 mt-md-0 mt-3">
-          <h3 className="text-uppercase">Heagle</h3> 
-          <p>Content about Heagle.</p>
+          <h3 className="heagle-logo">
+          <img
+                alt="Logo"
+                src={require('./../images/heaglw-logo-transparent-v2.png')}
+                width="100"
+                height="100"
+                className="heagle-logo"
+              />{' '}
+          </h3> 
+          <p className='heagle-content'>Content about Heagle.</p>
         </div>
         <hr className="clearfix w-100 d-md-none pb-3" />
         <div className="col-md-2 mb-md-0 mb-3">

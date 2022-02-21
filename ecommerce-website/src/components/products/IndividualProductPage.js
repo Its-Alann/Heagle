@@ -18,8 +18,10 @@ const IndividualProductPage = ({ match }) => {
 
   useEffect(()=> {
       const getProductFromServer = "https://heagle-backend.herokuapp.com/getProduct/" + pageId.id
+      // Use this const below for when you code in local, comment it out once done
+      //const getProductFromServer = "http://localhost:3001/getProduct/" + pageId.id  
       Axios.get(getProductFromServer).then((response) => {
-          setName(response.data[0].name);
+        setName(response.data[0].name);
           setDescription(response.data[0].description);
           setImageUrl(response.data[0].imageUrl);
           setPrice(response.data[0].price);
