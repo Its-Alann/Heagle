@@ -142,4 +142,21 @@ body {
   .SingleProductButton:focus {
     background: #0cb8af1c;
   }
+
+  .add-button{
+    float:left;
+    width:25%;
+  }
+
+  .quantity{
+    float:left;
+    width:50%;
+  }
+
+  .minus-button{
+    float:right;
+    width:25%;
+  }
+
+
   /* IndividualProductPage - End */
