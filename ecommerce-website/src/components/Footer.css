@@ -1,25 +1,26 @@
-.page-footer {
-
-background-color: gray;
-position: fixed;
-left: 0;
-bottom: 0;
+.mt-auto {
+background-color: #e6e6e6;
 width: 100%;
-color: white;
-height: 11%;
-
+color: #3A3A3A;
+height: 165px;
 }
-
+.text-uppercase {
+    margin: 15px;
+}
+.heagle-content {
+    margin-left: 15px;
+}
+.heagle-logo {
+    margin-bottom: 0px;
+}
 a.footer-link:hover{
-
     color: rgb(0, 204, 255);
 }
-
+.list-unstyled{
+    margin: 30px;
+}
 .footer-link{
-
     text-decoration: none;
-    color: white;
-    
-
+    color: #969696;
 }
 
