@@ -19,7 +19,6 @@ const fetchProductListFromDbDev = () =>{
 		updatedItemList = itemList.concat(res.data);
 		console.log(updatedItemList);
 	});
-	return
 }
 
 export default fetchProductListFromDbDev;
