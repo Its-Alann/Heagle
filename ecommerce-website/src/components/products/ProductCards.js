@@ -9,8 +9,11 @@ const ProductCards = () => {
 	const [products, setProducts] = useState([]);
 
 	useEffect(() => {
+		const url = "https://heagle-backend.herokuapp.com/fetchProductList";
+		const devUrl = "http://localhost:3001/fetchProductList"; 
 		try {
-			Axios.get("http://localhost:3001/fetchProductList").then((res) => {
+			Axios.get(url) //use the devUrl variable in the Axios request when working on local server.
+			.then((res) => {
 				setProducts(res.data);
 			});
 		} catch (error) {}
