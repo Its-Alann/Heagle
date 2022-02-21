@@ -51,6 +51,17 @@ const IndividualProductPage = ({ match }) => {
                     <h6>Status</h6>
                     <span>In Stock</span>
                   </div>
+
+                  <div className="add-button">
+                    <button className="AddButton">+</button>
+                  </div>
+                  <div className="quantity">
+                    <p className="quantityNum" id="quantity">1</p>
+                  </div>
+                  <div className="minus-button">
+                    <button className="MinusButton">-</button>
+                  </div>
+
                   <div className="alert  mt-3">
                     <button className="SingleProductButton">Add To Cart</button>
                   </div>
