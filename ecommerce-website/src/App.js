@@ -24,11 +24,13 @@ function App() {
         {/*<Link to="/"> Home </Link>
         <Link to="/electronics"> Electronics </Link>
         <Link to="/clothes"> Clothing </Link>
-        <Link to="/food"> Food </Link>*/}
+      <Link to="/food"> Food </Link>*/}
         <Link to="/login"> Login </Link>
 
+        <Home/>
+        
         <Routes>
-          <Route path="/home" exact element={<Home />} />
+          {/* <Route path="/home" exact element={<Home />} /> */}
           <Route path="/clothes" exact element={<Clothes />} />
           <Route path ="/electronics" exact element={<Electronics/>}/>
           <Route path="/food" exact element={<Food />} />
