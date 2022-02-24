@@ -18,8 +18,9 @@ const ProductLoader = () => {
 					setProducts(res.data);
 				});
 		} catch (error) {}
-		productDatabase.concat(products);
-	});
+		productDatabase = productDatabase.concat(products);
+		console.log(productDatabase);
+	}, []);
 
 	return null;
 };
