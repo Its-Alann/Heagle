@@ -27,10 +27,10 @@ function App() {
       <Link to="/food"> Food </Link>*/}
 				<Link to="/login"> Login </Link>
 
-				<Home />
+				{/* <Home /> */}
 
 				<Routes>
-					{/* <Route path="/home" exact element={<Home />} /> */}
+					<Route path="/home" exact element={<Home />} />
 					<Route path="/clothes" exact element={<Clothes />} />
 					<Route path="/electronics" exact element={<Electronics />} />
 					<Route path="/food" exact element={<Food />} />
