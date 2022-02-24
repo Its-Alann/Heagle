@@ -33,12 +33,19 @@ These are the technologies used to build our e-commerce website
 |  Back-end  | [![Express JS][express-shield]](https://expressjs.com/)    |
 | Front-end | [![React][react-shield]](https://reactjs.org/)  |
 | Database | [![MySQL][mysql-shield]](https://www.mysql.com/) |
+| Framework | [![Bootstrap][bootstrap-shield]](https://getbootstrap.com/) |
+| Hosting | [![Heroku][heroku-shield]](https://www.heroku.com/) |
+| UI Design | [![Figma][figma-shield]](https://www.figma.com/) |
+| Logo Design | [![Photoshop][photoshop-shield]](https://www.adobe.com/ca/products/photoshop.html) [![Canva][canva-shield]](https://www.canva.com/) |
 
 ## Language Used
-- HTML
-- CSS
-- JavaScript
-- MySQL
+
+|       |                                                  |
+| :---: | :----------------------------------------------: |
+|  HTML  | [![HTML][html-shield]](https://expressjs.com/)    |
+| CSS | [![CSS][css-shield]](https://reactjs.org/)  |
+| JavaScript | [![JavaScript][js-shield]](https://www.javascript.com/) |
+| MySQL | [![MySQL][mysql-shield]](https://www.mysql.com/) |
 
 ## Progress
 - [x] [Sprint 1](https://moodle.concordia.ca/moodle/pluginfile.php/5314863/mod_assign/introattachment/0/SOEN%20341%20Project%20Description%20and%20Sprint%201.docx?forcedownload=1)
@@ -74,3 +81,15 @@ These are the technologies used to build our e-commerce website
 [express-shield]: https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white
 [react-shield]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
 [mysql-shield]: https://img.shields.io/badge/MySQL-005C84?style=for-the-badge&logo=mysql&logoColor=white
+[bootstrap-shield]: https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
+[js-shield]: https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E
+[html-shield]: https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white
+[css-shield]: https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white
+[heroku-shield]: https://img.shields.io/badge/Heroku-430098?style=for-the-badge&logo=heroku&logoColor=white
+[figma-shield]: https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white
+[photoshop-shield]: https://img.shields.io/badge/Adobe%20Photoshop-31A8FF?style=for-the-badge&logo=Adobe%20Photoshop&logoColor=black
+[canva-shield]: https://img.shields.io/badge/Canva-%2300C4CC.svg?&style=for-the-badge&logo=Canva&logoColor=white
+
+
+
+
