@@ -47,15 +47,22 @@ These are the technologies used to build our e-commerce website
   - [x] Commits by all members
   - [x] Plan for Sprint 2
 
-- [ ] Sprint 2
+- [x] Sprint 2
   - [x] User Story 
-    - [x] Labelling and Formatting
-    - [x] Task Breakdown
-    - [x] Story Point 
-  - [ ] Feature 1: Item Browsing
-    - [ ] Acceptance Test
-    - [ ] Risk Assesement  
-  - [ ] Plan for Sprint 3
+  - [x] Labelling and Formatting
+  - [x] Task Breakdown
+  - [x] Story Point 
+  - [x] Feature 1: Item Browsing
+  - [x] Acceptance Test
+  - [x] Risk Assesement
+  - [x] Plan for Sprint 3
+
+- [ ] Sprint 3
+  - [ ] Fully complete the 2nd user story: Managing your profile
+  - [ ] Create and work on 3rd user story
+  - [ ] Start other user stories (including defining properly the user stories, detailing tasks/risks/acceptance tests)
+  - [ ] Look into Travis or similar CI applications
+  - [ ] Implement additional change from TA feedbacks
 
 - [ ] Sprint 3
 - [ ] Sprint 4
