@@ -30,14 +30,15 @@ These are the technologies used to build our e-commerce website
 
 |       |                                                  |
 | :---: | :----------------------------------------------: |
-|  PHP  |    [![PHP][php-shield]](https://www.php.net/)    |
-| React |  [![React][react-shield]](https://reactjs.org/)  |
-| MySQL | [![MySQL][mysql-shield]](https://www.mysql.com/) |
+|  Back-end  | [![Express JS][express-shield]](https://expressjs.com/)    |
+| Front-end | [![React][react-shield]](https://reactjs.org/)  |
+| Database | [![MySQL][mysql-shield]](https://www.mysql.com/) |
 
 ## Language Used
 - HTML
 - CSS
 - JavaScript
+- MySQL
 
 ## Progress
 - [x] [Sprint 1](https://moodle.concordia.ca/moodle/pluginfile.php/5314863/mod_assign/introattachment/0/SOEN%20341%20Project%20Description%20and%20Sprint%201.docx?forcedownload=1)
@@ -70,6 +71,6 @@ These are the technologies used to build our e-commerce website
 <!-- Links for buttons -->
 [contributors-shield]: https://img.shields.io/github/contributors/Its-Alann/groupD-soen341project2022.svg?style=for-the-badge
 [contributors-url]: https://github.com/Its-Alann/groupD-soen341project2022/graphs/contributors
-[php-shield]: https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&logo=php&logoColor=white
+[express-shield]: https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white
 [react-shield]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
 [mysql-shield]: https://img.shields.io/badge/MySQL-005C84?style=for-the-badge&logo=mysql&logoColor=white
