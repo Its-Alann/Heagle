@@ -8,7 +8,12 @@ import {useLocation} from 'react-router-dom';
 const ProductCards = () => {
 	const pageCategory = useLocation().pathname;
 	console.log(pageCategory);
-	const listItems = productDatabase.filter(item => ("/" + item.type) === pageCategory).map((item) => (
+	const listItems = productDatabase.filter(item => {
+		if(pageCategory!== "/home"){
+			return ("/" + item.type) === pageCategory
+		}
+		return item;
+	}).map((item) => (
 		<div className="card" key={item.id}>
 			<Link to={`/${item.type}/${item.id}`} style={{ textDecoration: "none" }}>
 				<div className="card-img">
