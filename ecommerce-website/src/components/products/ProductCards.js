@@ -3,9 +3,12 @@ import { Card, Button, Container, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "./Products.css";
 import productDatabase from "./productDatabase";
+import {useLocation} from 'react-router-dom';
 
 const ProductCards = () => {
-	const listItems = productDatabase.map((item) => (
+	const pageCategory = useLocation().pathname;
+	console.log(pageCategory);
+	const listItems = productDatabase.filter(item => ("/" + item.type) === pageCategory).map((item) => (
 		<div className="card" key={item.id}>
 			<Link to={`/${item.type}/${item.id}`} style={{ textDecoration: "none" }}>
 				<div className="card-img">
