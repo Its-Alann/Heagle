@@ -15,10 +15,12 @@ const ProductLoader = () => {
 		try {
 			Axios.get(url) //use the devUrl variable in the Axios request when working on local server.
 				.then((res) => {
-					setProducts(res.data);
+					res.data.forEach(element => {
+						productDatabase.push(element);
+					});
 				});
 		} catch (error) {}
-		productDatabase = productDatabase.concat(products);
+		//productDatabase = productDatabase.concat(products);
 		console.log(productDatabase);
 	}, []);
 
