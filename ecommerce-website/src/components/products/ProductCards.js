@@ -17,7 +17,7 @@ const ProductCards = () => {
 		<div className="card" key={item.id}>
 			<Link to={`/${item.type}/${item.id}`} style={{ textDecoration: "none" }}>
 				<div className="card-img">
-					<img src={item.imageUrl} className="image" alt="" />
+					{/* <img src={item.imageUrl} className="image" alt="" /> */}
 				</div>
 			</Link>
 			<div className="card-header">
@@ -26,16 +26,17 @@ const ProductCards = () => {
 						to={`/${item.type}/${item.id}`}
 						style={{ textDecoration: "none" }}
 					>
-						<Card.Title className="card-title"> {item.name} </Card.Title>
+					<Card.Img className="image" src={item.imageUrl} alt={item.name} />
+					<Card.Title className="card-title"> {item.name} </Card.Title>
 					</Link>
 					<Card.Text className="card-text"> {item.description} </Card.Text>
 					<Card.Text className="card-price">
-						{" "}
+						{" "}$
 						{item.price}
 						{item.currency}{" "}
 					</Card.Text>
 					<div className="button">
-						<Button className="btn"> Add to Card </Button>
+						<Button className="btn"> Add to Cart </Button>
 					</div>
 				</Card.Body>
 			</div>
