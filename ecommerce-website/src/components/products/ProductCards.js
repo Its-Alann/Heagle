@@ -1,4 +1,4 @@
-import React from "react";
+import {React, useState, useEffect} from "react";
 import { Card, Button, Container, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "./Products.css";
@@ -6,8 +6,19 @@ import productDatabase from "./productDatabase";
 import {useLocation} from 'react-router-dom';
 
 const ProductCards = () => {
+	const [db, setDb] = useState(0);
+
+	useEffect(()=>{
+		setTimeout(()=>{
+			setDb(1);
+			//console.log("Component Re-rendered");
+		}, 200);
+	},[])
+
+	//Finds the category of the page using the url
 	const pageCategory = useLocation().pathname;
-	console.log(pageCategory);
+	//console.log(pageCategory);
+
 	const listItems = productDatabase.filter(item => {
 		if(pageCategory!== "/home"){
 			return ("/" + item.type) === pageCategory
