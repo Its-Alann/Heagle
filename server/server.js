@@ -27,6 +27,7 @@ app.get("/", (req, res) => {
 	);
 });
 
+//Retrieve Individual Product from Db
 app.get("/getProduct/:id", (req, res) => {
 	const searchId = req.params.id;
 	const sqlQuery =
@@ -40,6 +41,7 @@ app.get("/getProduct/:id", (req, res) => {
 	});
 });
 
+//Retrieve Products from Db 
 app.get("/fetchProductList", (req, res) => {
 	const sqlQuery = `SELECT * FROM  e5zkwad79wtbvjrc.products
 	`;
@@ -52,6 +54,7 @@ app.get("/fetchProductList", (req, res) => {
 	});
 });
 
+//Insert User Info to Db
 app.post("/registerUser", (req, res) => {
 	const email = req.body.email;
 	const password = req.body.password;
@@ -67,6 +70,66 @@ app.post("/registerUser", (req, res) => {
 		} else {
 			res.send("User Successfully Registered");
 			console.log(result);
+		}
+	});
+});
+
+//Retrieve User Info from Db
+app.get("/getUser/:id", (req, res) => {
+	const searchId = req.params.id;
+	const sqlQuery =
+		"SELECT * FROM e5zkwad79wtbvjrc.temp_users WHERE id='" + searchId + "'";
+	db.query(sqlQuery, (err, results) => {
+		if (err) {
+			throw err;
+		} else {
+			res.send(results);
+		}
+	});
+});
+
+//Update User Info to Db
+app.post("/updateUser", (req, res) => {
+	const password = req.body.password;
+	const email = req.body.email;
+	const phoneNumber = req.body.phoneNumber;
+	const firstName = req.body.firstName;
+	const lastName = req.body.lastName;
+	const typeUser = req.body.typeUser;
+	const typeSeller = req.body.typeSeller;
+	const searchId = req.body.userID;
+
+	const sqlQueryParams =
+		"email = '" + email + "', " + 
+		"password = '" + password + "', " + 
+		"firstName = '" + firstName + "', " + 
+		"lastName = '" + lastName + "', " + 
+		"phoneNumber = '" + phoneNumber + "', " + 
+		"typeUser = '" + typeUser + "', " +
+		"typeSeller = '" + typeSeller + "'";
+
+	const sqlQuery = "UPDATE e5zkwad79wtbvjrc.temp_users SET " + sqlQueryParams + " WHERE id = '" + searchId + "'";
+
+	db.query(sqlQuery, (err, result) => {
+		if (err) {
+			console.log(err);
+		} else {
+			res.send("User Successfully Updated Info");
+			console.log(result);
+		}
+	});
+});
+
+//Retrieve Seller's Product(s) from Db
+app.get("/getSellerProducts/:userId", (req, res) => {
+	const searchId = req.params.id;
+	const sqlQuery =
+		"SELECT * FROM e5zkwad79wtbvjrc.products WHERE sellerID='" + searchId + "'";
+	db.query(sqlQuery, (err, results) => {
+		if (err) {
+			throw err;
+		} else {
+			res.send(results);
 		}
 	});
 });
