@@ -14,11 +14,11 @@ import ProductLoader from "./components/products/productLoader";
 
 function App() {
 	//States
-
+	const [update, setUpdate] = useState(0); //Used to re-render the app component after the products are fetched from the db
 	return (
 		// <IndividualProductPage />
 		<div className="App">
-			<ProductLoader></ProductLoader>
+			<ProductLoader update={setUpdate}></ProductLoader>
 			<Router>
 				<Navbar />
 				{/*<Link to="/"> Home </Link>
