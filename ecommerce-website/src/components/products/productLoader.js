@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import "./Products.css";
 import productDatabase from "./productDatabase.js";
 
-const ProductLoader = () => {
+const ProductLoader = (props) => {
 	const [products, setProducts] = useState([]);
 
 	useEffect(() => {
@@ -15,10 +15,11 @@ const ProductLoader = () => {
 		try {
 			Axios.get(url) //use the devUrl variable in the Axios request when working on local server.
 				.then((res) => {
-					res.data.forEach(element => {
+					res.data.forEach((element) => {
 						productDatabase.push(element);
 					});
-				});
+				})
+				.then(() => props.update(1)); //Updates the App component state 'update', which causes it to re-render after the request has been made.
 		} catch (error) {}
 		//productDatabase = productDatabase.concat(products);
 		console.log(productDatabase);
