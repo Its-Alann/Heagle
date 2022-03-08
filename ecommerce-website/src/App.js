@@ -38,7 +38,7 @@ function App() {
 					<Route path="/electronics/:id" element={<IndividualProductPage />} />
 					<Route path="/clothes/:id" element={<IndividualProductPage />} />
 					<Route path="/food/:id" element={<IndividualProductPage />} />
-					<Route path="/login/:id" element={<Login />} />
+					<Route path="/login" element={<Login />} />
 				</Routes>
 				{/* <h2> Food </h2> */}
 

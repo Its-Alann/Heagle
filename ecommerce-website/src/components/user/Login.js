@@ -1,14 +1,17 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Axios from "axios";
 import "./Login.css";
 import { Card, Button, Container, Row } from "react-bootstrap";
 
-const Login = () => {
+const Login = (props) => {
 	//States
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const [user, setUser] = useState({});
 	const [errMessage, setErrMessage] = useState("");
+
+	const navigate = useNavigate();
 
 	useEffect(() => {
 		const currentUser = localStorage.getItem("user");
@@ -41,6 +44,7 @@ const Login = () => {
 			//If credz are valid
 			setErrMessage(user.firstName + " LOGGED IN");
 			localStorage.setItem("user", JSON.stringify(user));
+			navigate("/home");
 		}
 	}, [user]);
 
@@ -67,8 +71,8 @@ const Login = () => {
 		console.log("User logged out.");
 	};
 
+	//If a user is already logged in
 	if (typeof user.email !== "undefined") {
-		//If a user is already logged in
 		return (
 			<div className="page">
 				<h1>Login</h1>
