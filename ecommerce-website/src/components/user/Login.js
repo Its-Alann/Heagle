@@ -10,44 +10,78 @@ const Login = () => {
 	const [user, setUser] = useState({});
 	const [errMessage, setErrMessage] = useState("");
 
+	useEffect(() => {
+		const currentUser = localStorage.getItem("user");
+		if (currentUser) {
+			console.log("found a user");
+			const foundUser = JSON.parse(currentUser);
+			console.log(foundUser);
+			setUser(foundUser);
+		}
+	}, []);
+
+	//Runs when changes are made to the email or password state
+	// useEffect(() => {
+	// 	console.log(email);
+	// 	console.log(password);
+	// }, [email, password]);
+
+	//Validates user's credential
+	useEffect(() => {
+		if (email === "") {
+		} else if (typeof user === "undefined") {
+			//If the email is not found in the db
+			setErrMessage("User not found");
+			//console.log("User not found");
+		} else if (user.password !== password) {
+			//If the password do not match the one in the db
+			setErrMessage("Invalid password");
+			//console.log("Password do not match");
+		} else {
+			//If credz are valid
+			setErrMessage(user.firstName + " LOGGED IN");
+			localStorage.setItem("user", JSON.stringify(user));
+		}
+	}, [user]);
+
 	const handleLogin = async (e) => {
 		e.preventDefault();
 		const url = "https://heagle.herokuapp.com/getUserByEmail/" + email;
 		const devurl = "http://localhost:3001/getUserByEmail/" + email;
 		try {
 			const response = await Axios.get(devurl);
-			console.log(response.data[0]);
+			//console.log(response.data[0]);
 			setUser(response.data[0]);
 		} catch (err) {
 			setErrMessage("User not found");
-			console.log("User not found: " + err);
+			//console.log("User not found: " + err);
 		}
-
-		//case were email and password matches
-		//case were email is found but password is not
-		//case where email is not found
 	};
 
-	//Runs when changes are made to the email or password state
-	useEffect(() => {
-		console.log(email);
-		console.log(password);
-	}, [email, password]);
+	const handleLogout = () => {
+		setEmail("");
+		setPassword("");
+		setUser({});
+		setErrMessage("");
+		localStorage.removeItem("user");
+		console.log("User logged out.");
+	};
 
-	//Validates user's credential
-	useEffect(() => {
-		if (email === "") {
-		} else if (typeof user === "undefined") {
-			setErrMessage("User not found");
-			console.log("User not found");
-		} else if (user.password !== password) {
-			setErrMessage("Invalid password");
-			console.log("Password do not match");
-		} else {
-			setErrMessage("USER LOGGED IN");
-		}
-	}, [user]);
-
+	if (typeof user.email !== "undefined") {
+		//If a user is already logged in
+		return (
+			<div className="page">
+				<h1>Login</h1>
+				<h2>{user.firstName + " is logged in"}</h2>
+				<div className="button">
+					<Button className="btn" onClick={handleLogout}>
+						{" "}
+						Logout{" "}
+					</Button>
+				</div>
+			</div>
+		);
+	}
 	return (
 		<div className="page">
 			<h1>Login</h1>
