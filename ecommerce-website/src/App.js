@@ -1,7 +1,13 @@
 import "./App.css";
 import Axios from "axios";
 import { useState } from "react";
-import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
+import {
+	BrowserRouter as Router,
+	Route,
+	Routes,
+	Link,
+	Navigate,
+} from "react-router-dom";
 import Electronics from "./components/categories/Electronics";
 import Clothes from "./components/categories/Clothes";
 import Food from "./components/categories/Food";
@@ -15,6 +21,7 @@ import ProductLoader from "./components/products/productLoader";
 function App() {
 	//States
 	const [update, setUpdate] = useState(0); //Used to re-render the app component after the products are fetched from the db
+
 	return (
 		// <IndividualProductPage />
 		<div className="App">
@@ -31,6 +38,7 @@ function App() {
 
 				<Routes>
 					<Route path="/home" exact element={<Home />} />
+					<Route path="/" exact element={<Navigate replace to="/home" />} />
 					<Route path="/clothes" exact element={<Clothes />} />
 					<Route path="/electronics" exact element={<Electronics />} />
 					<Route path="/food" exact element={<Food />} />

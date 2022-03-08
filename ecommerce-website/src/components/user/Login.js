@@ -53,7 +53,7 @@ const Login = (props) => {
 		const url = "https://heagle.herokuapp.com/getUserByEmail/" + email;
 		const devurl = "http://localhost:3001/getUserByEmail/" + email;
 		try {
-			const response = await Axios.get(devurl);
+			const response = await Axios.get(url);
 			//console.log(response.data[0]);
 			setUser(response.data[0]);
 		} catch (err) {
