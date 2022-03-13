@@ -13,7 +13,7 @@ const ProductLoader = () => {
 		const url = "https://heagle-backend.herokuapp.com/fetchProductList";
 		const devUrl = "http://localhost:3001/fetchProductList";
 		try {
-			Axios.get(url) //use the devUrl variable in the Axios request when working on local server.
+			Axios.get(devUrl) //use the devUrl variable in the Axios request when working on local server.
 				.then((res) => {
 					res.data.forEach(element => {
 						productDatabase.push(element);

@@ -8,8 +8,8 @@ app.use(cors());
 app.use(express.json());
 
 app.use(function (req, res, next) {
-	res.header("Access-Control-Allow-Origin", "https://heagle.herokuapp.com"); // update to match the domain you will make the request from
-	//res.header("Access-Control-Allow-Origin", "http://localhost:3000"); // update to match the domain you will make the request from
+	// res.header("Access-Control-Allow-Origin", "https://heagle.herokuapp.com"); // update to match the domain you will make the request from
+	res.header("Access-Control-Allow-Origin", "http://localhost:3000"); // update to match the domain you will make the request from
 	res.header(
 		"Access-Control-Allow-Headers",
 		"Origin, X-Requested-With, Content-Type, Accept"
@@ -121,7 +121,7 @@ app.post("/updateUser", (req, res) => {
 });
 
 //Retrieve Seller's Product(s) from Db
-app.get("/getSellerProducts/:userId", (req, res) => {
+app.get("/getSellerProducts/:id", (req, res) => {
 	const searchId = req.params.id;
 	const sqlQuery =
 		"SELECT * FROM e5zkwad79wtbvjrc.products WHERE sellerID='" + searchId + "'";
