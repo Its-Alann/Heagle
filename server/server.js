@@ -41,7 +41,7 @@ app.get("/getProduct/:id", (req, res) => {
 	});
 });
 
-//Retrieve Products from Db 
+//Retrieve Products from Db
 app.get("/fetchProductList", (req, res) => {
 	const sqlQuery = `SELECT * FROM  e5zkwad79wtbvjrc.products
 	`;
@@ -88,6 +88,22 @@ app.get("/getUser/:id", (req, res) => {
 	});
 });
 
+//Retrieve User Info from Db by email
+app.get("/getUserByEmail/:email", (req, res) => {
+	const searchEmail = req.params.email;
+	const sqlQuery =
+		"SELECT * FROM e5zkwad79wtbvjrc.temp_users WHERE email='" +
+		searchEmail +
+		"'";
+	db.query(sqlQuery, (err, results) => {
+		if (err) {
+			throw err;
+		} else {
+			res.send(results);
+		}
+	});
+});
+
 //Update User Info to Db
 app.post("/updateUser", (req, res) => {
 	const password = req.body.password;
@@ -100,15 +116,34 @@ app.post("/updateUser", (req, res) => {
 	const searchId = req.body.userID;
 
 	const sqlQueryParams =
-		"email = '" + email + "', " + 
-		"password = '" + password + "', " + 
-		"firstName = '" + firstName + "', " + 
-		"lastName = '" + lastName + "', " + 
-		"phoneNumber = '" + phoneNumber + "', " + 
-		"typeUser = '" + typeUser + "', " +
-		"typeSeller = '" + typeSeller + "'";
+		"email = '" +
+		email +
+		"', " +
+		"password = '" +
+		password +
+		"', " +
+		"firstName = '" +
+		firstName +
+		"', " +
+		"lastName = '" +
+		lastName +
+		"', " +
+		"phoneNumber = '" +
+		phoneNumber +
+		"', " +
+		"typeUser = '" +
+		typeUser +
+		"', " +
+		"typeSeller = '" +
+		typeSeller +
+		"'";
 
-	const sqlQuery = "UPDATE e5zkwad79wtbvjrc.temp_users SET " + sqlQueryParams + " WHERE id = '" + searchId + "'";
+	const sqlQuery =
+		"UPDATE e5zkwad79wtbvjrc.temp_users SET " +
+		sqlQueryParams +
+		" WHERE id = '" +
+		searchId +
+		"'";
 
 	db.query(sqlQuery, (err, result) => {
 		if (err) {
