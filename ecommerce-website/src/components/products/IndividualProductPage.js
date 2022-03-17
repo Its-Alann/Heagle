@@ -3,7 +3,7 @@ import "./Products.css";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { Button, Container, Row, Col } from "react-bootstrap";
-
+import baseUrl from "../../SystemVariables";
 import Axios from "axios";
 
 const IndividualProductPage = ({ match }) => {
@@ -14,10 +14,8 @@ const IndividualProductPage = ({ match }) => {
 	const [selectedProductPrice, setPrice] = useState("");
 	const [selectedProductImageUrl, setImageUrl] = useState("");
 
-  const getProductFromServer = "https://heagle-backend.herokuapp.com/getProduct/" + pageId.id
-		// Use this const below for when you code in local, comment it out once done
-		//const getProductFromServer = "http://localhost:3001/getProduct/" + pageId.id;
-    
+	useEffect(() => {
+		const getProductFromServer =baseUrl+ "/getProduct/" + pageId.id;
 		Axios.get(getProductFromServer).then((response) => {
 			setName(response.data[0].name);
 			setDescription(response.data[0].description);
