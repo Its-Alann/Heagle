@@ -1,10 +1,24 @@
-import React, { Component } from 'react'
+import React, { Component, useEffect } from 'react'
 import {Navbar, Nav, NavDropdown, Form, FormControl, Button, Container} from 'react-bootstrap'
 import{Link} from "react-router-dom"
 import "./Navbar.css"
 
 export default class NavbarMenu extends Component {
+
+  constructor(props){
+    super(props);
+    this.state = {
+      update: 0
+    }
+  }
+    
   render() {
+    
+    const loggedUser = () => {
+      if(localStorage.getItem("user")){
+        return <Nav.Link as={Link} to="/Login">{"Welcome, " + JSON.parse(localStorage.getItem("user")).firstName}</Nav.Link>;
+      }
+    }
     return (
       <div>
         <Navbar bg="" expand="lg">
@@ -25,6 +39,7 @@ export default class NavbarMenu extends Component {
                 style={{ maxHeight: '100px' }}
                 navbarScroll
             >
+                {loggedUser()}
                 <Nav.Link as={Link} to="/home">Home</Nav.Link>
                 
                 <NavDropdown title="Products" id="navbarScrollingDropdown">
@@ -38,6 +53,9 @@ export default class NavbarMenu extends Component {
                 <Nav.Link as={Link} to="/cart">Cart</Nav.Link>
                 <Nav.Link as={Link} to="/user">User</Nav.Link>
                 <Nav.Link as={Link} to="/about">About</Nav.Link>
+                
+
+                
             </Nav>
 
             <Form className="d-flex">
