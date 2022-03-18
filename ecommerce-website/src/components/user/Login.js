@@ -75,7 +75,7 @@ const Login = (props) => {
 	};
 
 	//If a user is already logged in
-	if (typeof user.email !== "undefined") {
+	if (JSON.parse(localStorage.getItem("user"))) {
 		return (
 			<div className="page">
 				<h1>Login</h1>
