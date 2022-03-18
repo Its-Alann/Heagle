@@ -21,11 +21,11 @@ import ProductLoader from "./components/products/productLoader";
 function App() {
 	//States
 	const [update, setUpdate] = useState(0); //Used to re-render the app component after the products are fetched from the db
-
+	
 	return (
 		// <IndividualProductPage />
 		<div className="App">
-			<ProductLoader update={setUpdate}></ProductLoader>
+			<ProductLoader update={setUpdate} updateValue={update}></ProductLoader>
 			<Router>
 				<Navbar />
 				{/*<Link to="/"> Home </Link>
@@ -37,7 +37,7 @@ function App() {
 				{/* <Home /> */}
 
 				<Routes>
-					<Route path="/home" exact element={<Home />} />
+					<Route path="/home" exact element={<Home update={setUpdate} updateValue={update}/>} />
 					<Route path="/" exact element={<Navigate replace to="/home" />} />
 					<Route path="/clothes" exact element={<Clothes />} />
 					<Route path="/electronics" exact element={<Electronics />} />
@@ -46,7 +46,7 @@ function App() {
 					<Route path="/electronics/:id" element={<IndividualProductPage />} />
 					<Route path="/clothes/:id" element={<IndividualProductPage />} />
 					<Route path="/food/:id" element={<IndividualProductPage />} />
-					<Route path="/login" element={<Login />} />
+					<Route path="/login" exact element={<Login/>} />
 				</Routes>
 				{/* <h2> Food </h2> */}
 

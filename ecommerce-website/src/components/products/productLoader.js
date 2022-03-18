@@ -5,13 +5,13 @@ import { Card, Button, Container, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "./Products.css";
 import productDatabase from "./productDatabase.js";
+import baseUrl from "../../SystemVariables";
 
 const ProductLoader = (props) => {
 	const [products, setProducts] = useState([]);
 
 	useEffect(() => {
-		const url = "https://heagle-backend.herokuapp.com/fetchProductList";
-		const devUrl = "http://localhost:3001/fetchProductList";
+		const url = baseUrl + "/fetchProductList";
 		try {
 			Axios.get(url) //use the devUrl variable in the Axios request when working on local server.
 				.then((res) => {
@@ -19,7 +19,10 @@ const ProductLoader = (props) => {
 						productDatabase.push(element);
 					});
 				})
-				.then(() => props.update(1)); //Updates the App component state 'update', which causes it to re-render after the request has been made.
+				.then(() => {
+					props.update((props.updateValue + 1)%100);
+					console.log("productsUpdate");
+				}); //Updates the App component state 'update', which causes it to re-render after the request has been made.
 		} catch (error) {}
 		//productDatabase = productDatabase.concat(products);
 		console.log(productDatabase);

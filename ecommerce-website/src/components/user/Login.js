@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import Axios from "axios";
 import "./Login.css";
 import { Card, Button, Container, Row } from "react-bootstrap";
+import baseUrl from "../../SystemVariables";
 
 const Login = (props) => {
 	//States
@@ -44,14 +45,15 @@ const Login = (props) => {
 			//If credz are valid
 			setErrMessage(user.firstName + " LOGGED IN");
 			localStorage.setItem("user", JSON.stringify(user));
-			navigate("/home");
+			navigate("/home"); //Refreshes the App.js component (mainly for the navbar).
 		}
+		
+
 	}, [user]);
 
 	const handleLogin = async (e) => {
 		e.preventDefault();
-		const url = "https://heagle.herokuapp.com/getUserByEmail/" + email;
-		const devurl = "http://localhost:3001/getUserByEmail/" + email;
+		const url = baseUrl + "/getUserByEmail/" + email;
 		try {
 			const response = await Axios.get(url);
 			//console.log(response.data[0]);
@@ -69,10 +71,11 @@ const Login = (props) => {
 		setErrMessage("");
 		localStorage.removeItem("user");
 		console.log("User logged out.");
+		navigate("/home");
 	};
 
 	//If a user is already logged in
-	if (typeof user.email !== "undefined") {
+	if (JSON.parse(localStorage.getItem("user"))) {
 		return (
 			<div className="page">
 				<h1>Login</h1>
