@@ -54,6 +54,72 @@ app.get("/fetchProductList", (req, res) => {
 	});
 });
 
+//Add a product from a seller
+app.post("/addProduct", (req, res)=>{
+	const name = req.body.name;
+	const description = req.body.description;
+	const price = req.body.price;
+	const quantity = req.body.quantity;
+	const imageUrl = req.body.imageUrl;
+	const type = req.body.type;
+	const sellerID = req.body.sellerID;	
+
+	const sqlQuery = "INSERT INTO e5zkwad79wtbvjrc.products VALUES (?,?,?,?,?,?,?)";
+
+	db.query(sqlQuery, [name, description, price, quantity, imageUrl, type, sellerID], (err, result)=>{
+		if(err){
+			console.log(err);
+			res.send(err);
+		}
+		else{
+			res.send("Product succesfully added to the database");
+		}
+	});
+
+});
+
+//Removes a product based on its id
+app.delete("/removeProduct/:id", (req, res)=>{
+	const id = req.params.id;
+	const sellerID = req.body.sellerID;
+
+	const sqlQuery = "DELETE FROM e5zkwad79wtbvjrc.products WHERE id = ? and sellerID = ?";
+
+	db.query(sqlQuery, [id, sellerID], (err, result)=>{
+		if(err){
+			console.log(err);
+			res.send(err);
+		}
+		else{
+			res.send("Product with id " + id  + "has been successfully deleted");
+		}
+	})
+})
+
+app.post("/editProduct/:id", (req, res)=>{
+	const id = req.params.id;
+	const name = req.body.name;
+	const description = req.body.description;
+	const price = req.body.price;
+	const quantity = req.body.quantity;
+	const imageUrl = req.body.imageUrl;
+	const type = req.body.type;
+	const sellerID = req.body.sellerID;	
+
+	const sqlQuery = "UPDATE e5zkwad79wtbvjrc.products SET name = ?, description = ?, price = ?, quantity = ?, imageUrl = ?, type = ? WHERE id = ? AND sellerID = ?";
+
+	db.query(sqlQuery, [name, description, price, quantity, imageUrl, type, id, sellerID], (err, result)=>{
+		if(err){
+			console.log(err);
+			res.send(err);
+		}
+		else{
+			res.send("Product succesfully added to the database");
+		}
+	});
+
+});
+
 //Insert User Info to Db
 app.post("/registerUser", (req, res) => {
 	const email = req.body.email;
@@ -168,6 +234,8 @@ app.get("/getSellerProducts/:userId", (req, res) => {
 		}
 	});
 });
+
+
 
 const PORT = process.env.PORT || 3001;
 app.listen(PORT);
