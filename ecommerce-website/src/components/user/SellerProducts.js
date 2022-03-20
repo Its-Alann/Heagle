@@ -1,32 +1,24 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { useState } from "react";
 import Axios from "axios";
-import { Container } from "react-bootstrap";
-import {Button, Row, Col} from 'react-bootstrap'
+import {Container, Row, Col} from 'react-bootstrap'
 import './SellerProducts.css'
+import baseUrl from "../../SystemVariables";
 
-
-const SellerProducts = (props) => {
+const SellerProducts = () => {
 
     const pageId = useParams();
-
     const [userProducts, setUserProducts ]= useState([]);
 
-
     useEffect(()=> {
-        // window.location.reload(false)
-
-        const getProductFromServer = "http://localhost:3001/getSellerProducts/"  + pageId.id
+        const getProductFromServer =baseUrl+ "/getSellerProducts/" + pageId.id;
         Axios.get(getProductFromServer).then((response) => {
-            console.log("alice: products from db: ")
-          console.log(response.data)
           setUserProducts(response.data);
-
         });
     }, []);
 
         return(
+        // Display seller's item(s)
         <Container>
         {
             userProducts.length > 0 ? 
@@ -63,6 +55,7 @@ const SellerProducts = (props) => {
                       </div>
                     </div>
                   </Col>
+
                   <Col Col lg={true} className="align-self-center SellerButtons">
                       {/* Edit/Remove Buttons */}
                       <Row className="SellerEditButton justify-content-center">
@@ -74,12 +67,8 @@ const SellerProducts = (props) => {
                   </Col>
                 </Row>
                 
-            )) 
-             : console.log("Seller has no product")
-      
-
+            )) : console.log("Seller has no product")
           }
-
         </Container>
     );
 
