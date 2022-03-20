@@ -18,13 +18,13 @@ import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import Home from "./components/home/Home";
 import ProductLoader from "./components/products/productLoader";
+import SellerProducts from "./components/user/SellerProducts";
 
 function App() {
 	//States
 	const [update, setUpdate] = useState(0); //Used to re-render the app component after the products are fetched from the db
 	
 	return (
-		// <IndividualProductPage />
 		<div className="App">
 			<ProductLoader update={setUpdate} updateValue={update}></ProductLoader>
 			<Router>
@@ -46,6 +46,7 @@ function App() {
 					<Route path="/food" exact element={<Food />} />
 					<Route path="/login" exact element={<Login />} />
 					<Route path="/register" exact element={<Register />} />
+					<Route path="/login/SellerProducts/:id" element={<SellerProducts />} />
 					<Route path="/electronics/:id" element={<IndividualProductPage />} />
 					<Route path="/clothes/:id" element={<IndividualProductPage />} />
 					<Route path="/food/:id" element={<IndividualProductPage />} />
