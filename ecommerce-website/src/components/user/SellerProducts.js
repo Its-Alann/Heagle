@@ -4,13 +4,14 @@ import { useState } from "react";
 import Axios from "axios";
 import { Container } from "react-bootstrap";
 import {Button, Row, Col} from 'react-bootstrap'
+import './SellerProducts.css'
 
 
 const SellerProducts = (props) => {
 
     const pageId = useParams();
 
-    const [userProducts, setUserProducts ]= useState("");
+    const [userProducts, setUserProducts ]= useState([]);
 
 
     useEffect(()=> {
@@ -25,56 +26,63 @@ const SellerProducts = (props) => {
         });
     }, []);
 
-const displayitem = () => {
-    if(userProducts > 0){
-        console.log("alice in userproduct" + userProducts[0])
-            userProducts.map( (sellerItem) => {
-                <div>
-                    <h1>{sellerItem.name}</h1> 
-                    <h3>{sellerItem.description}</h3>
-                </div>
-            })
-    }
-    else{
-        console.log("alice nothig in userproduct")
-    }
-}
-
-    return(
-
+        return(
         <Container>
-
         {
             userProducts.length > 0 ? 
-            console.log("alice in userproduct"  )
-            // userProducts.map( (sellerItem) => {
-            //     <div>
-            //         <h1>{sellerItem.name}</h1> 
-            //         <h3>{sellerItem.description}</h3>
-            //     </div>
-            // })
-             : console.log("alice nothig in userproduct")
+            userProducts.map((product, idx) => (
+
+                <Row>
+                  <Col Col lg={true} className="align-self-center">
+                      {/* Product Image */}
+                      <div className="row-md-6 single-image">
+                        <img src={product.imageUrl} className = "img-fluid" alt={product.name} />
+                      </div>
+                  </Col>
+                
+                  <Col Col lg={true}>
+                    <div className="product-dtl bg-light">
+                      {/* Product Name */}
+                      <div className="product-name">{product.name}</div>
+                      
+                      {/* Product Description */}
+                      <div className="SingleProductDescription">
+                        <p>{product.description}</p>
+                      </div>
+                
+                      <div className="p-3 shadow-sm rounded">
+                        {/* Product Price */}
+                        <div className="product-count">${product.price}</div>
+                
+                        {/* Product Quantity */}
+                        <Row className="justify-content-md-center">
+                          <div className="quantity">
+                            <p className="alert">Quantity: {product.quantity}</p>
+                          </div>
+                        </Row>
+                      </div>
+                    </div>
+                  </Col>
+                  <Col Col lg={true} className="align-self-center SellerButtons">
+                      {/* Edit/Remove Buttons */}
+                      <Row className="SellerEditButton justify-content-center">
+                        <button>Edit</button>
+                      </Row>
+                      <Row className="SellerRemoveButton justify-content-center">
+                      <button >Remove</button>
+                      </Row>
+                  </Col>
+                </Row>
+                
+            )) 
+             : console.log("Seller has no product")
       
 
           }
-          <div>
 
-<h1>Here is seller products page!</h1>
-
-<h2>seller#: {pageId.id}</h2>
-
-
-
-
-
-</div>
         </Container>
+    );
 
-
-        
-        
-
-    )
 }
 
 export default SellerProducts
