@@ -6,8 +6,8 @@ const Register = () => {
     return(
         <div className="page">
             <h1>Sign Up</h1>
-            <div className="login-block">
-                <div className="login-block-top">
+            <div className="register-block">
+                <div className="register-block-top">
                     <h3>Sign Up</h3>
                     <div className="username">
 
@@ -16,7 +16,7 @@ const Register = () => {
 
                     </div>
                 </div>
-                <div className="login-block-center">
+                <div className="register-block-center">
                     <form>
                         <input type="text" placeholder='Username' />
                         <input type="password" placeholder='Password'/>
@@ -26,12 +26,12 @@ const Register = () => {
                         <input type="text" placeholder='Phone number'/>
                     </form>
                 </div>
-                <div className="login-block-bottom">
+                <div className="register-block-bottom">
                     <div className="button">
-                        <Button className="btn"> Login </Button>
+                        <Button className="btn"> Register </Button>
                     </div>
                     <div className="create-account">
-                        Already have an account? LogIn now.
+                        {/* Already have an account? LogIn now. */}
                     </div>
                 </div>
             </div>
