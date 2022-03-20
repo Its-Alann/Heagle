@@ -92,3 +92,7 @@ input[type="password"] {
 	/* Microsoft Edge */
 	color: #3a3a3a;
 }
+
+.productBtn {
+	margin:10px
+}
