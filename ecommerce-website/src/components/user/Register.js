@@ -1,5 +1,5 @@
 import React from 'react'
-import './Login.css'
+import './Register.css'
 import {Card, Button, Container, Row} from 'react-bootstrap'
 
 const Register = () => {
