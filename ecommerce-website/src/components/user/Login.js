@@ -4,6 +4,9 @@ import Axios from "axios";
 import "./Login.css";
 import { Card, Button, Container, Row } from "react-bootstrap";
 import baseUrl from "../../SystemVariables";
+import { Link } from "react-router-dom";
+import SellerProducts from "./SellerProducts";
+
 
 const Login = (props) => {
 	//States
@@ -74,12 +77,51 @@ const Login = (props) => {
 		navigate("/home");
 	};
 
+	const viewSellerProducts = () => {
+		<Link 
+		
+			to={"/login/SellerProducts"}
+
+		></Link>
+
+		console.log("alice button work!")
+
+
+	}
+
 	//If a user is already logged in
 	if (JSON.parse(localStorage.getItem("user"))) {
+
+		console.log("alice - user info:")
+		const currentUser = localStorage.getItem("user");
+		const foundUser = JSON.parse(currentUser);
+		console.log(foundUser.id);
+
+			
+
 		return (
 			<div className="page">
 				<h1>Login</h1>
 				<h2>{user.firstName + " is logged in"}</h2>
+				
+
+				
+				<div className="button">
+				{/* <SellerProducts info = {foundUser.id}/> */}
+
+				<Link
+					to={`/login/SellerProducts/${foundUser.id}`}
+
+
+			>
+				
+					<Button className="btn" >
+						{" "}
+						view my products{" "}
+					</Button>
+				</Link>
+				</div>
+
 				<div className="button">
 					<Button className="btn" onClick={handleLogout}>
 						{" "}
