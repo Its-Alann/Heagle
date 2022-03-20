@@ -10,27 +10,8 @@ import Axios from "axios";
 const SellerProducts = ({ match }) => {
 
   const pageId = useParams(); 
-  
-  const [selectedProductName, setName ]= useState("");
-  const [selectedProductDescription, setDescription ]= useState("");
-  const [selectedProductPrice, setPrice ]= useState("");
-  const [selectedProductImageUrl, setImageUrl ]= useState("");
-  const [userProducts, setUserProducts ]= useState("");
-
-  useEffect(()=> {
-
-      // const getProductFromServer = "https://heagle-backend.herokuapp.com/getProduct/" + pageId.id
-      // Use this const below for when you code in local, comment it out once done
-      // const getProductFromServer = "http://localhost:3001/getSellerProducts/" + pageId.id 
-      // Axios.get(getProductFromServer).then((response) => {
-      //     setUserProducts(response.data);
-      //     // setName(response.data[0].name);
-      //     // setDescription(response.data[0].description);
-      //     // setImageUrl(response.data[0].imageUrl);
-      //     // setPrice(response.data[0].price);
-      //   });
-  }, []);
-
+ 
+  const [userProducts, setUserProducts ]= useState([]);
 
   const getUserProducts = () => {
     const getProductFromServer = "http://localhost:3001/getSellerProducts/"  + pageId.id
@@ -44,8 +25,6 @@ const SellerProducts = ({ match }) => {
       <Container className="single-product">
         <button onClick={getUserProducts}>Show My Product(s) - In SellerProdCopy</button>
         {/* render product list */}
-
-
 
         {userProducts.map((product) => {
             return (   

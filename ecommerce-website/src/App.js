@@ -6,7 +6,6 @@ import Electronics from "./components/categories/Electronics";
 import Clothes from "./components/categories/Clothes";
 import Food from "./components/categories/Food";
 import Login from "./components/user/Login.js";
-// import SellerProducts from "./components/user/SellerProducts";
 import SellerProducts2 from "./components/user/SellerProducts copy";
 import IndividualProductPage from "./components/products/IndividualProductPage";
 import Footer from "./components/Footer";
@@ -28,7 +27,6 @@ function App() {
         <Link to="/clothes"> Clothing </Link>
       <Link to="/food"> Food </Link>*/}
 				<Link to="/login"> Login </Link>
-				{/* <Link to="/SellerProducts">SellerProducts</Link> */}
 				<Link to="/SellerProducts2">SellerProducts2</Link>
 
 				{/* <Home /> */}
@@ -39,14 +37,12 @@ function App() {
 					<Route path="/electronics" exact element={<Electronics />} />
 					<Route path="/food" exact element={<Food />} />
 					<Route path="/login" exact element={<Login />} />
-					{/* <Route path="/SellerProducts" exact element={<SellerProducts />} /> */}
 					<Route path="/SellerProducts2" exact element={<SellerProducts2 />} />
 
 					<Route path="/electronics/:id" element={<IndividualProductPage />} />
 					<Route path="/clothes/:id" element={<IndividualProductPage />} />
 					<Route path="/food/:id" element={<IndividualProductPage />} />
 					<Route path="/login/:id" element={<Login />} />
-					{/* <Route path="/SellerProducts/:id" element={<SellerProducts />} /> */}
 					<Route path="/SellerProducts2/:id" element={<SellerProducts2 />} />
 
 				</Routes>
