@@ -12,6 +12,7 @@ import Electronics from "./components/categories/Electronics";
 import Clothes from "./components/categories/Clothes";
 import Food from "./components/categories/Food";
 import Login from "./components/user/Login.js";
+import Register from "./components/user/Register.js";
 import IndividualProductPage from "./components/products/IndividualProductPage";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
@@ -33,6 +34,7 @@ function App() {
         <Link to="/clothes"> Clothing </Link>
       <Link to="/food"> Food </Link>*/}
 				<Link to="/login"> Login </Link>
+				<Link to="/register"> Register</Link>
 
 				{/* <Home /> */}
 
@@ -43,6 +45,7 @@ function App() {
 					<Route path="/electronics" exact element={<Electronics />} />
 					<Route path="/food" exact element={<Food />} />
 					<Route path="/login" exact element={<Login />} />
+					<Route path="/register" exact element={<Register />} />
 					<Route path="/login/SellerProducts/:id" element={<SellerProducts />} />
 					<Route path="/electronics/:id" element={<IndividualProductPage />} />
 					<Route path="/clothes/:id" element={<IndividualProductPage />} />
