@@ -34,6 +34,7 @@ function App() {
         <Link to="/clothes"> Clothing </Link>
       <Link to="/food"> Food </Link>*/}
 				<Link to="/login"> Login </Link>
+				<Link to="/register"> Sign Up </Link>
 
 				{/* <Home /> */}
 

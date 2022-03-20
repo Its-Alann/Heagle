@@ -1,6 +1,8 @@
 import React from 'react'
 import './Login.css'
+import './Register.css'
 import {Card, Button, Container, Row} from 'react-bootstrap'
+import { Link } from "react-router-dom"
 
 const Register = () => {
     return(
@@ -28,10 +30,10 @@ const Register = () => {
                 </div>
                 <div className="login-block-bottom">
                     <div className="button">
-                        <Button className="btn"> Login </Button>
+                        <Button className="btn"> Sign Up </Button>
                     </div>
                     <div className="create-account">
-                        Already have an account? LogIn now.
+                        <Link exact to="/login">Already have an account? Log In now.</Link>
                     </div>
                 </div>
             </div>
