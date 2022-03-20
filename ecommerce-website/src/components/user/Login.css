@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Abel&display=swap");
 
 .page {
-	background-color: #cbcbcb;
+	background-color: #E8E4E4;
 	font-family: Abel;
 	height: 1000px;
 }
@@ -91,4 +91,8 @@ input[type="password"] {
 ::-ms-input-placeholder {
 	/* Microsoft Edge */
 	color: #3a3a3a;
+}
+
+.productBtn {
+	margin:10px
 }

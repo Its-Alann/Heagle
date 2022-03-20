@@ -1,5 +1,4 @@
 import React from 'react'
-import './Login.css'
 import './Register.css'
 import {Card, Button, Container, Row} from 'react-bootstrap'
 import { Link, useNavigate } from "react-router-dom"
@@ -83,8 +82,8 @@ const Register = () => {
     return(
         <div className="page">
             <h1>Sign Up</h1>
-            <div className="login-block">
-                <div className="login-block-top">
+            <div className="register-block">
+                <div className="register-block-top">
                     <h3>Sign Up</h3>
                     <div className="username">
 
@@ -93,7 +92,7 @@ const Register = () => {
 
                     </div>
                 </div>
-                <div className="login-block-center">
+                <div className="register-block-center">
                     <form>
                         <input type="text" placeholder='First Name' onChange={({ target }) => {
                             setFirstName(target.value);
@@ -116,12 +115,14 @@ const Register = () => {
                     </form>
                     <h6 className="error-message">{errMessage}</h6>
                 </div>
-                <div className="login-block-bottom">
+                <div className="register-block-bottom">
                     <div className="button">
-                        <Button className="btn" onClick={handleSignUp}> Sign Up </Button>
+
+                        <Button className="btn" onClick={handleSignUp}> Register </Button>
                     </div>
                     <div className="create-account">
                         <Link exact to="/login">Already have an account? Log In now.</Link>
+
                     </div>
                 </div>
             </div>
