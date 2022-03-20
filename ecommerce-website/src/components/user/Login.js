@@ -146,7 +146,8 @@ const Login = (props) => {
 							Login{" "}
 						</Button>
 					</div>
-					<div className="create-account">Create account</div>
+					<div className="create-account">
+						<Link exact to="/register">Create account</Link></div>
 				</div>
 			</div>
 		</div>
