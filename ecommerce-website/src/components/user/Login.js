@@ -87,7 +87,7 @@ const Login = (props) => {
 				<h1>Login</h1>
 				<h2>{user.firstName + " is logged in"}</h2>
 				
-				{/* To edit: profile */}
+				{/* To edit: profile
 				<div className="button">
 
 				<Link to={`/login/EditLogin/${foundUser.id}`}>
@@ -96,7 +96,7 @@ const Login = (props) => {
 						Edit my Profile{" "}
 					</Button>
 				</Link>
-				</div>
+				</div> */}
 				
 				{/* To view: Items of Seller */}
 				<div className="button">

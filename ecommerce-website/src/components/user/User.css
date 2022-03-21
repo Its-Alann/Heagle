@@ -86,3 +86,11 @@ input[type="password"] {
 	/* Microsoft Edge */
 	color: #3a3a3a;
 }
+
+.error-message {
+	color: red;
+}
+
+.button {
+	margin: 10px;
+}
