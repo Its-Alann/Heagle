@@ -4,6 +4,7 @@ import './User.css'
 import { useParams } from "react-router-dom";
 import Axios from "axios";
 import { useNavigate } from "react-router-dom";
+import baseUrl from "../../SystemVariables";
 
 
 
@@ -25,7 +26,7 @@ const User = () => {
     const [passwordConfirm, setPasswordConfirm] = useState("");
   
     useEffect(()=> {
-        const getUserFromServer = "http://localhost:3001/getUser/" + userId.id  
+        const getUserFromServer = baseUrl + "/getUser/" + userId.id  
         Axios.get(getUserFromServer).then((response) => {
             setPassword(response.data[0].password);
             setEmail(response.data[0].email);
@@ -43,7 +44,7 @@ const User = () => {
             setErrMessage("Passwords do not match")
         }
         else{
-            Axios.post("http://localhost:3001/updateUser", {
+            Axios.post(baseUrl+"/updateUser", {
                 password: selectedUserPassword,
                 email: selectedUserEmail,
                 phoneNumber: selectedUserTel,
