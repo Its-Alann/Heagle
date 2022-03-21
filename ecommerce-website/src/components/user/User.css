@@ -1,0 +1,88 @@
+@import url("https://fonts.googleapis.com/css?family=Abel&display=swap");
+
+.page {
+	background-color: #E8E4E4;
+	font-family: Abel;
+	height: 1000px;
+}
+
+.user-block {
+	width: 55%;
+	height: 50%;
+	box-shadow: 5px 5px 10px grey;
+	background-color: #f4f5f7;
+	margin: auto;
+	/* border: 3px solid green; */
+	padding: 10px;
+}
+
+h3 {
+	color: #00779e;
+}
+
+.user-block-top {
+	width: 80%;
+	height: 10%;
+	margin: auto;
+	/* border: 3px solid green; */
+	/* height:30%; */
+}
+
+.user-block-centre {
+	width: 60%;
+	height: 80%;
+	margin: auto;
+	/* border: 3px solid green; */
+	/* height:30%; */
+}
+
+.user-block-bottom {
+	width: 20%;
+	margin: auto;
+	/* border: 3px solid green; */
+	/* height:30%; */
+}
+
+.Save-Changes {
+	text-align: center;
+	font-size: 10px;
+	text-decoration: underline;
+}
+
+.error-message {
+	color: red;
+}
+
+input[type="text"] {
+	width: 100%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	box-sizing: border-box;
+	background-color: #d8d8d8;
+	border: 0;
+}
+
+input[type="password"] {
+	width: 100%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	box-sizing: border-box;
+	background-color: #d8d8d8;
+	border: 0;
+}
+
+::placeholder {
+	/* Chrome, Firefox, Opera, Safari 10.1+ */
+	color: #3a3a3a;
+	opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder {
+	/* Internet Explorer 10-11 */
+	color: #3a3a3a;
+}
+
+::-ms-input-placeholder {
+	/* Microsoft Edge */
+	color: #3a3a3a;
+}
