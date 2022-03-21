@@ -19,6 +19,7 @@ import Navbar from "./components/Navbar";
 import Home from "./components/home/Home";
 import ProductLoader from "./components/products/productLoader";
 import SellerProducts from "./components/user/SellerProducts";
+import User from "./components/user/User"
 
 function App() {
 	//States
@@ -51,6 +52,7 @@ function App() {
 					<Route path="/clothes/:id" element={<IndividualProductPage />} />
 					<Route path="/food/:id" element={<IndividualProductPage />} />
 					<Route path="/login" exact element={<Login/>} />
+					<Route path="/user" element={<User/>}/>
 				</Routes>
 				{/* <h2> Food </h2> */}
 
