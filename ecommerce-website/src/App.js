@@ -18,7 +18,9 @@ import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import Home from "./components/home/Home";
 import ProductLoader from "./components/products/productLoader";
+import Register from "./components/user/Register"
 import SellerProducts from "./components/user/SellerProducts";
+
 
 function App() {
 	//States
@@ -50,7 +52,7 @@ function App() {
 					<Route path="/electronics/:id" element={<IndividualProductPage />} />
 					<Route path="/clothes/:id" element={<IndividualProductPage />} />
 					<Route path="/food/:id" element={<IndividualProductPage />} />
-					<Route path="/login" exact element={<Login/>} />
+					<Route path="/register" exact element={<Register/>} />
 				</Routes>
 				{/* <h2> Food </h2> */}
 
