@@ -18,7 +18,6 @@ import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import Home from "./components/home/Home";
 import ProductLoader from "./components/products/productLoader";
-import Register from "./components/user/Register"
 import SellerProducts from "./components/user/SellerProducts";
 
 
