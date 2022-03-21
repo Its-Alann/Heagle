@@ -91,4 +91,8 @@
   .SingleProductAddCartButton:focus {
     background: #0cb8af1c;
   }
+  .retryBtn {
+    margin: 10px;
+    font-family: Abel; 
+  }
   /* SellerProducts - End */

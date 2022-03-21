@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Axios from "axios";
-import {Container, Row, Col} from 'react-bootstrap'
+import {Container, Row, Col, Button} from 'react-bootstrap'
 import './SellerProducts.css'
 import baseUrl from "../../SystemVariables";
-
+import {Link} from "react-router-dom";
 const SellerProducts = () => {
 
     const pageId = useParams();
@@ -67,7 +67,7 @@ const SellerProducts = () => {
                   </Col>
                 </Row>
                 
-            )) : console.log("Seller has no product")
+            )) : <div className="retryBtn"><Link exact to="/login"><Button>Please retry logging in</Button></Link></div>
           }
         </Container>
     );

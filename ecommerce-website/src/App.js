@@ -21,7 +21,6 @@ import ProductLoader from "./components/products/productLoader";
 import SellerProducts from "./components/user/SellerProducts";
 import User from "./components/user/User";
 
-
 function App() {
 	//States
 	const [update, setUpdate] = useState(0); //Used to re-render the app component after the products are fetched from the db
@@ -53,7 +52,7 @@ function App() {
 					<Route path="/clothes/:id" element={<IndividualProductPage />} />
 					<Route path="/food/:id" element={<IndividualProductPage />} />
 					<Route path="/login" exact element={<Login/>} />
-					<Route path="/user" element={<User/>} />
+					<Route path="/login/user/:id" element={<User/>} />
 					<Route path="/register" exact element={<Register/>} />
 				</Routes>
 				{/* <h2> Food </h2> */}

@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css?family=Abel&display=swap');
+
+.page{
+    background-color: #CBCBCB;
+    font-family: Abel;
+    height:1000px;
+}
+
+.login-block{
+    width: 55%;
+    height: 70%;
+    box-shadow: 5px 5px 10px grey;
+    background-color: #F4F5F7;
+    margin: auto;
+    /* border: 3px solid green; */
+    padding: 10px;
+}
+
+h3{
+    color: #00779E;
+}
+
+.login-block-top{
+    width: 80%;
+    height: 10%;
+    margin: auto;
+    /* border: 3px solid green; */
+    /* height:30%; */
+}
+
+.login-block-center{
+    width: 60%;
+    height: 100%;
+    margin: auto;
+    /* border: 3px solid green; */
+    /* height:30%; */
+}
+
+.password-forgotten{
+    text-align: right;
+    font-size: 10px;
+    text-decoration: underline;
+}
+
+.login-block-bottom{
+    width: 20%;
+    margin: auto;
+    /* border: 3px solid green; */
+    /* height:30%; */
+}
+
+.create-account{
+    text-align: center;
+    font-size: 10px;
+    text-decoration: underline;
+}
+
+input[type=text] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    background-color: #D8D8D8;
+    border: 0;
+  }
+
+  input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    background-color: #D8D8D8;
+    border: 0;
+  }
+
+  ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #3A3A3A;
+    opacity: 1; /* Firefox */
+  }
+  
+  :-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: #3A3A3A;
+  }
+  
+  ::-ms-input-placeholder { /* Microsoft Edge */
+    color: #3A3A3A;
+  }
