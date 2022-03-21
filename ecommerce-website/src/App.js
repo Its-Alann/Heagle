@@ -18,9 +18,8 @@ import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import Home from "./components/home/Home";
 import ProductLoader from "./components/products/productLoader";
-import Register from "./components/user/Register"
 import SellerProducts from "./components/user/SellerProducts";
-
+import EditLogin from "./components/user/EditLogin";
 
 function App() {
 	//States
@@ -49,6 +48,7 @@ function App() {
 					<Route path="/login" exact element={<Login />} />
 					<Route path="/register" exact element={<Register />} />
 					<Route path="/login/SellerProducts/:id" element={<SellerProducts />} />
+					<Route path="/login/EditLogin/:id" element={<EditLogin />} />
 					<Route path="/electronics/:id" element={<IndividualProductPage />} />
 					<Route path="/clothes/:id" element={<IndividualProductPage />} />
 					<Route path="/food/:id" element={<IndividualProductPage />} />

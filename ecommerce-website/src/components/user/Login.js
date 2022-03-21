@@ -87,6 +87,17 @@ const Login = (props) => {
 				<h1>Login</h1>
 				<h2>{user.firstName + " is logged in"}</h2>
 				
+				{/* To edit: profile */}
+				<div className="button">
+
+				<Link to={`/login/EditLogin/${foundUser.id}`}>
+					<Button className="btn productBtn" >
+						{" "}
+						Edit my Profile{" "}
+					</Button>
+				</Link>
+				</div>
+				
 				{/* To view: Items of Seller */}
 				<div className="button">
 
