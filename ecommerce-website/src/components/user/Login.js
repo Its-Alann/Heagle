@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Axios from "axios";
 import "./Login.css";
 import { Card, Button, Container, Row } from "react-bootstrap";
@@ -76,10 +77,27 @@ const Login = (props) => {
 
 	//If a user is already logged in
 	if (JSON.parse(localStorage.getItem("user"))) {
+
+		const currentUser = localStorage.getItem("user");
+		const foundUser = JSON.parse(currentUser);
+		console.log(foundUser.id);
+
 		return (
 			<div className="page">
 				<h1>Login</h1>
 				<h2>{user.firstName + " is logged in"}</h2>
+				
+				{/* To view: Items of Seller */}
+				<div className="button">
+
+				<Link to={`/login/SellerProducts/${foundUser.id}`}>
+					<Button className="btn productBtn" >
+						{" "}
+						View my products{" "}
+					</Button>
+				</Link>
+				</div>
+
 				<div className="button">
 					<Button className="btn" onClick={handleLogout}>
 						{" "}
@@ -128,7 +146,8 @@ const Login = (props) => {
 							Login{" "}
 						</Button>
 					</div>
-					<div className="create-account">Create account</div>
+					<div className="create-account">
+						<Link exact to="/register">Create account</Link></div>
 				</div>
 			</div>
 		</div>

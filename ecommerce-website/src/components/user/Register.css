@@ -6,7 +6,7 @@
 	height: 1000px;
 }
 
-.login-block {
+.register-block {
 	width: 55%;
 	height: 50%;
 	box-shadow: 5px 5px 10px grey;
@@ -20,7 +20,7 @@ h3 {
 	color: #00779e;
 }
 
-.login-block-top {
+.register-block-top {
 	width: 80%;
 	height: 10%;
 	margin: auto;
@@ -28,9 +28,9 @@ h3 {
 	/* height:30%; */
 }
 
-.login-block-center {
+.register-block-center {
 	width: 60%;
-	height: 60%;
+	height: 80%;
 	margin: auto;
 	/* border: 3px solid green; */
 	/* height:30%; */
@@ -42,7 +42,7 @@ h3 {
 	text-decoration: underline;
 }
 
-.login-block-bottom {
+.register-block-bottom {
 	width: 20%;
 	margin: auto;
 	/* border: 3px solid green; */
@@ -91,8 +91,4 @@ input[type="password"] {
 ::-ms-input-placeholder {
 	/* Microsoft Edge */
 	color: #3a3a3a;
-}
-
-.productBtn {
-	margin:10px
 }
