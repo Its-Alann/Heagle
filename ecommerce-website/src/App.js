@@ -34,7 +34,7 @@ function App() {
         <Link to="/electronics"> Electronics </Link>
         <Link to="/clothes"> Clothing </Link>
       <Link to="/food"> Food </Link>*/}
-				{/* <Link to="/login"> Login </Link> */}
+				<Link to="/login"> Login </Link>
 				<Link to="/register"> Register</Link>
 
 				{/* <Home /> */}
