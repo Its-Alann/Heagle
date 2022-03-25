@@ -20,6 +20,7 @@ import Home from "./components/home/Home";
 import ProductLoader from "./components/products/productLoader";
 import SellerProducts from "./components/user/SellerProducts";
 import User from "./components/user/User";
+import Marketplace from "./components/user/Marketplace";
 
 function App() {
 	//States
@@ -45,6 +46,7 @@ function App() {
 					<Route path="/clothes" exact element={<Clothes />} />
 					<Route path="/electronics" exact element={<Electronics />} />
 					<Route path="/food" exact element={<Food />} />
+					<Route path="/marketplace" exact element={<Marketplace />} />
 					<Route path="/login" exact element={<Login />} />
 					<Route path="/register" exact element={<Register />} />
 					<Route path="/login/SellerProducts/:id" element={<SellerProducts />} />
