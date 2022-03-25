@@ -19,6 +19,16 @@ export default class NavbarMenu extends Component {
         return <Nav.Link as={Link} to="/Login">{"Welcome, " + JSON.parse(localStorage.getItem("user")).firstName}</Nav.Link>;
       }
     }
+
+    const loggedUser2 = () => {
+      if(localStorage.getItem("user")){
+        return <Nav.Link as={Link} to={`/login/user/${foundUser.id}`}>User</Nav.Link>;
+      }
+    }
+
+    const currentUser = localStorage.getItem("user");
+		const foundUser = JSON.parse(currentUser);
+		// console.log("alice in nvbar: " + foundUser.id);
     return (
       <div>
         <Navbar bg="" expand="lg">
@@ -40,6 +50,8 @@ export default class NavbarMenu extends Component {
                 navbarScroll
             >
                 {loggedUser()}
+                {loggedUser2()}
+
                 <Nav.Link as={Link} to="/home">Home</Nav.Link>
                 
                 <NavDropdown title="Products" id="navbarScrollingDropdown">
@@ -51,7 +63,8 @@ export default class NavbarMenu extends Component {
                 </NavDropdown>
                 
                 <Nav.Link as={Link} to="/cart">Cart</Nav.Link>
-                <Nav.Link as={Link} to="/user">User</Nav.Link>
+
+                
                 <Nav.Link as={Link} to="/about">About</Nav.Link>
                 
 
