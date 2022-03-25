@@ -93,13 +93,13 @@ app.delete("/removeProduct/:id", (req, res)=>{
 	})
 })
 
-app.post("/editProduct/:id", (req, res)=>{
-	const id = req.params.id;
+app.post("/editProduct", (req, res)=>{
+	const id = req.body.id;
 	const name = req.body.name;
 	const description = req.body.description;
 	const price = req.body.price;
 	const quantity = req.body.quantity;
-	const imageUrl = req.body.imageUrl;
+	const imageUrl = req.body.imageURL;
 	const type = req.body.type;
 	const sellerID = req.body.sellerID;	
 
