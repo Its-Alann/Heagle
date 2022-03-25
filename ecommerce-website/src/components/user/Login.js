@@ -101,12 +101,23 @@ const Login = (props) => {
 				{/* To view: Items of Seller */}
 				<div className="button">
 
-				<Link to={`/login/SellerProducts/${foundUser.id}`}>
-					<Button className="btn productBtn" >
-						{" "}
-						View my products{" "}
-					</Button>
-				</Link>
+					<Link to={`/login/SellerProducts/${foundUser.id}`}>
+						<Button className="btn" >
+							{" "}
+							View my products{" "}
+						</Button>
+					</Link>
+				</div>
+
+				{/* To add: Item of Seller */}
+				<div className="button">
+
+					<Link to={`/login/SellerProducts/add/${foundUser.id}`}>
+						<Button className="btn" >
+							{" "}
+							Add a product{" "}
+						</Button>
+					</Link>
 				</div>
 
 				<div className="button">

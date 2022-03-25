@@ -5,9 +5,16 @@ import { Link, useNavigate } from "react-router-dom"
 import { useEffect, useState } from "react";
 import Axios from "axios";
 import baseUrl from "../../SystemVariables";
-
+import { useParams } from "react-router-dom";
 
 const Marketplace = () => {
+
+    const pageId = useParams();
+
+    useEffect(()=> {
+        // console.log("Hello")
+        // console.log(pageId.id);
+    }, []);
 
     const [productName, setproductName] = useState("");
     const [imageURL, setImageURL] = useState("");
@@ -15,6 +22,7 @@ const Marketplace = () => {
     const [description, setDescription] = useState("");
     const [price, setPrice] = useState("");
     const [type, setType] = useState("");
+    // const [sellerID, setsellerID] = useState("");
     const [errMessage, setErrMessage] = useState("");
     const [formConfirm, setFormConfirm] = useState(false);
     const navigate = useNavigate();
@@ -22,7 +30,9 @@ const Marketplace = () => {
     const handleAddProduct = () => {
 
         const url = baseUrl + "/addProduct"
-
+        const sellerID = pageId.id
+        console.log("Hello pageid: ")
+        console.log(sellerID);
         
             Axios.post(url, {
 
@@ -32,8 +42,10 @@ const Marketplace = () => {
                 description: description,
                 price: price,
                 type: type,
+                sellerID: sellerID,
 
             }).then((console.log("Success")))
+            navigate("/login/SellerProducts/" + pageId.id);
 
         }
 
