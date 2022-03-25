@@ -61,7 +61,7 @@ const IndividualProductPage = ({ match }) => {
 							{/* Product Quantity */}
 							<Row className="justify-content-md-center">
 								<div className="col-md-4 d-flex justify-content-center">
-									<button className="qty-button">+</button>
+									<button className="qty-button">-</button>
 								</div>
 
 								<div className="col-md-4 quantity ">
@@ -69,7 +69,7 @@ const IndividualProductPage = ({ match }) => {
 								</div>
 
 								<div className="col-md-4 d-flex justify-content-center">
-									<button className="qty-button">-</button>
+									<button className="qty-button">+</button>
 								</div>
 							</Row>
 
