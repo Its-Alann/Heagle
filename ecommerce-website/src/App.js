@@ -52,6 +52,7 @@ function App() {
 					<Route path="/login" exact element={<Login />} />
 					<Route path="/register" exact element={<Register />} />
 					<Route path="/login/SellerProducts/:id" element={<SellerProducts />} />
+					<Route path="/login/SellerProducts/add/:id" element={<Marketplace />} />
 					<Route path="/electronics/:id" element={<IndividualProductPage />} />
 					<Route path="/clothes/:id" element={<IndividualProductPage />} />
 					<Route path="/food/:id" element={<IndividualProductPage />} />
