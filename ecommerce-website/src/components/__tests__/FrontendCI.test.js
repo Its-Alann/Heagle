@@ -6,6 +6,7 @@ import Login from "../user/Login"
 import App from "../../App"
 import SellerProducts from "../user/SellerProducts"
 import { Router } from "react-router-dom"
+import Register from "../user/Register"
 
 describe('Sample Tests', () => {
 
@@ -32,17 +33,23 @@ describe('Browsing Items Tests', () => {
 
 describe('Managing Profiles Tests', () => {
 
-    test('Renders the login buttton on home page', () => {
-        render(<App />);
-        const linkElement = screen.getByText(/login/i);
-        expect(linkElement).toBeInTheDocument();
-    });
+    // test('Renders the login buttton on home page', () => {
+    //     render(<App />);
+    //     const linkElement = screen.getByText(/login/i);
+    //     expect(linkElement).toBeInTheDocument();
+    // });
     
-    test('Renders the register buttton on home page', () => {
-        render(<App />);
-        const linkElement = screen.getByText(/register/i);
-        expect(linkElement).toBeInTheDocument();
-    });
+    // test('Renders the register buttton on home page', () => {
+    //     render(<App />);
+    //     const linkElement = screen.getByText(/register/i);
+    //     expect(linkElement).toBeInTheDocument();
+    // });
+
+    test("Renders register page", () => {
+        <Router>
+            render(<Register/>)
+        </Router>
+    })
 
     test('Login form appears', () => {
         
@@ -57,9 +64,9 @@ describe('Sellers Tests', () => {
 
     test('Shows the products for sellers', () => {
 
-        <Router>
-            render(<SellerProducts/>)
-        </Router>
+    <Router>
+        render(<SellerProducts/>)
+    </Router>
     })
 })
 
