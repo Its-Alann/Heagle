@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import Axios from "axios";
 import {Container, Row, Col, Button} from 'react-bootstrap'
 import './SellerProducts.css'
@@ -7,6 +7,7 @@ import baseUrl from "../../SystemVariables";
 import {Link} from "react-router-dom";
 const SellerProducts = () => {
 
+    const navigate = useNavigate();
     const pageId = useParams();
     const [userProducts, setUserProducts ]= useState([]);
 
@@ -19,7 +20,7 @@ const SellerProducts = () => {
 
         return(
         // Display seller's item(s)
-        <Container>
+        <Container Style="padding:20px 0px">
         {
             userProducts.length > 0 ? 
             userProducts.map((product, idx) => (
@@ -59,7 +60,9 @@ const SellerProducts = () => {
                   <Col Col lg={true} className="align-self-center SellerButtons">
                       {/* Edit/Remove Buttons */}
                       <Row className="SellerEditButton justify-content-center">
-                        <button>Edit</button>
+                        <button onClick={()=>{
+                          navigate("/editProduct/" + product.id);
+                        }}>Edit</button>
                       </Row>
                       <Row className="SellerRemoveButton justify-content-center">
                       <button >Remove</button>
@@ -69,7 +72,8 @@ const SellerProducts = () => {
                 
             )) : <div className="retryBtn"><Link exact to="/login"><Button>Please retry logging in</Button></Link></div>
           }
-        </Container>
+          
+        </Container >
     );
 
 }
