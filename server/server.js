@@ -9,7 +9,7 @@ app.use(express.json());
 
 app.use(function (req, res, next) {
 	res.header("Access-Control-Allow-Origin", "https://heagle.herokuapp.com"); // update to match the domain you will make the request from
-	// res.header("Access-Control-Allow-Origin", "http://localhost:3000"); // update to match the domain you will make the request from
+	//res.header("Access-Control-Allow-Origin", "http://localhost:3000"); // update to match the domain you will make the request from
 	res.header(
 		"Access-Control-Allow-Headers",
 		"Origin, X-Requested-With, Content-Type, Accept"
@@ -165,6 +165,28 @@ app.get("/getSellerProducts/:id", (req, res) => {
 			throw err;
 		} else {
 			res.send(results);
+		}
+	});
+});
+
+//Insert new product into db
+app.post("/addProduct", (req, res) => {
+	const productName = req.body.productName;
+	const imageURL = req.body.imageURL;
+	const quantity = req.body.quantity;
+	const description = req.body.description;
+	const price = req.body.price;
+	const type = req.body.type;
+
+	const sqlQuery = `INSERT INTO e5zkwad79wtbvjrc.products (name, imageURL, quantity, description, price, type)
+		VALUES (?,?,?,?,?,?)`;
+
+	db.query(sqlQuery, [productName, imageURL, quantity, description, price, type ], (err, result) => {
+		if (err) {
+			console.log(err);
+		} else {
+			res.send("Product Successfully Added");
+			console.log(result);
 		}
 	});
 });
