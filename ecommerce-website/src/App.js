@@ -21,6 +21,7 @@ import ProductLoader from "./components/products/productLoader";
 import SellerProducts from "./components/user/SellerProducts";
 import User from "./components/user/User";
 import Marketplace from "./components/user/Marketplace";
+import EditProduct from "./components/user/EditProduct";
 
 function App() {
 	//States
@@ -47,6 +48,7 @@ function App() {
 					<Route path="/electronics" exact element={<Electronics />} />
 					<Route path="/food" exact element={<Food />} />
 					<Route path="/marketplace" exact element={<Marketplace />} />
+					<Route path="/editProduct/:id" exact element={<EditProduct />} />
 					<Route path="/login" exact element={<Login />} />
 					<Route path="/register" exact element={<Register />} />
 					<Route path="/login/SellerProducts/:id" element={<SellerProducts />} />
