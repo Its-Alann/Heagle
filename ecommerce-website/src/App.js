@@ -22,11 +22,12 @@ import SellerProducts from "./components/user/SellerProducts";
 import User from "./components/user/User";
 import Marketplace from "./components/user/Marketplace";
 import EditProduct from "./components/user/EditProduct";
+import UserMenu from "./components/user/UserMenu";
 
 function App() {
 	//States
 	const [update, setUpdate] = useState(0); //Used to re-render the app component after the products are fetched from the db
-	
+
 	return (
 		<div className="App">
 			<ProductLoader update={setUpdate} updateValue={update}></ProductLoader>
@@ -42,7 +43,7 @@ function App() {
 				{/* <Home /> */}
 
 				<Routes>
-					<Route path="/home" exact element={<Home update={setUpdate} updateValue={update}/>} />
+					<Route path="/home" exact element={<Home update={setUpdate} updateValue={update} />}/>
 					<Route path="/" exact element={<Navigate replace to="/home" />} />
 					<Route path="/clothes" exact element={<Clothes />} />
 					<Route path="/electronics" exact element={<Electronics />} />
@@ -50,15 +51,16 @@ function App() {
 					<Route path="/marketplace" exact element={<Marketplace />} />
 					<Route path="/editProduct/:id" exact element={<EditProduct />} />
 					<Route path="/login" exact element={<Login />} />
+					<Route path="/userMenu" exact element={<UserMenu />} />
 					<Route path="/register" exact element={<Register />} />
-					<Route path="/login/SellerProducts/:id" element={<SellerProducts />} />
-					<Route path="/login/SellerProducts/add/:id" element={<Marketplace />} />
+					<Route path="/login/SellerProducts/:id" element={<SellerProducts />}/>
+					<Route path="/login/SellerProducts/add/:id" element={<Marketplace />}/>
 					<Route path="/electronics/:id" element={<IndividualProductPage />} />
 					<Route path="/clothes/:id" element={<IndividualProductPage />} />
 					<Route path="/food/:id" element={<IndividualProductPage />} />
-					<Route path="/login" exact element={<Login/>} />
-					<Route path="/login/user/:id" element={<User/>} />
-					<Route path="/register" exact element={<Register/>} />
+					<Route path="/login" exact element={<Login />} />
+					<Route path="/login/user/:id" element={<User />} />
+					<Route path="/register" exact element={<Register />} />
 				</Routes>
 				{/* <h2> Food </h2> */}
 

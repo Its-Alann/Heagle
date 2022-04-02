@@ -16,13 +16,19 @@ export default class NavbarMenu extends Component {
     
     const loggedUser = () => {
       if(localStorage.getItem("user")){
-        return <Nav.Link as={Link} to="/Login">{"Welcome, " + JSON.parse(localStorage.getItem("user")).firstName}</Nav.Link>;
+        return <Nav.Link as={Link} to="/UserMenu">{"Welcome, " + JSON.parse(localStorage.getItem("user")).firstName}</Nav.Link>;
+      }
+      else{
+        return <Nav.Link as={Link} to={`/login`}>Login</Nav.Link>;
       }
     }
 
     const loggedUser2 = () => {
       if(localStorage.getItem("user")){
-        return <Nav.Link as={Link} to={`/login/user/${foundUser.id}`}>User</Nav.Link>;
+        return <Nav.Link as={Link} to={`/UserMenu`}>User</Nav.Link>;
+      }
+      else{
+        return <Nav.Link as={Link} to={`/register`}>Register</Nav.Link>;
       }
     }
 

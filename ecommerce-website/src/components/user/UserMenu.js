@@ -6,7 +6,7 @@ import "./Login.css";
 import { Card, Button, Container, Row } from "react-bootstrap";
 import baseUrl from "../../SystemVariables";
 
-const Login = (props) => {
+const UserMenu = (props) => {
 	//States
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
@@ -25,12 +25,6 @@ const Login = (props) => {
 		}
 	}, []);
 
-	//Runs when changes are made to the email or password state
-	// useEffect(() => {
-	// 	console.log(email);
-	// 	console.log(password);
-	// }, [email, password]);
-
 	//Validates user's credential
 	useEffect(() => {
 		if (email === "") {
@@ -48,22 +42,7 @@ const Login = (props) => {
 			localStorage.setItem("user", JSON.stringify(user));
 			navigate("/home"); //Refreshes the App.js component (mainly for the navbar).
 		}
-		
-
 	}, [user]);
-
-	const handleLogin = async (e) => {
-		e.preventDefault();
-		const url = baseUrl + "/getUserByEmail/" + email;
-		try {
-			const response = await Axios.get(url);
-			//console.log(response.data[0]);
-			setUser(response.data[0]);
-		} catch (err) {
-			setErrMessage("User not found");
-			//console.log("User not found: " + err);
-		}
-	};
 
 	const handleLogout = () => {
 		setEmail("");
@@ -77,15 +56,34 @@ const Login = (props) => {
 
 	//If a user is already logged in
 	if (JSON.parse(localStorage.getItem("user"))) {
-		
 		const currentUser = localStorage.getItem("user");
 		const foundUser = JSON.parse(currentUser);
 		console.log(foundUser.id);
 
 		return (
 			<div className="page">
-				<h1>Login</h1>
+				<h1>User Menu</h1>
 				<h2>{user.firstName + " is logged in"}</h2>
+
+				<div className="button">
+					<Link to={`/login/user/${foundUser.id}`}>
+						<Button className="btn">Edit Profile</Button>
+					</Link>
+				</div>
+				{/* To view: Items of Seller */}
+				<div className="button">
+					<Link to={`/login/SellerProducts/${foundUser.id}`}>
+						<Button className="btn"> View my products </Button>
+					</Link>
+				</div>
+
+				{/* To add: Item of Seller */}
+				<div className="button">
+					<Link to={`/login/SellerProducts/add/${foundUser.id}`}>
+						<Button className="btn"> Add a product </Button>
+					</Link>
+				</div>
+
 				<div className="button">
 					<Button className="btn" onClick={handleLogout}>
 						{" "}
@@ -97,49 +95,9 @@ const Login = (props) => {
 	}
 	return (
 		<div className="page">
-			<h1>Login</h1>
-			<div className="login-block">
-				<div className="login-block-top">
-					<h3>Connect to your account</h3>
-					<div className="email"></div>
-					<div className="password"></div>
-				</div>
-				<div className="login-block-center">
-					<h6 className="error-message">{errMessage}</h6>
-					<form>
-						<input
-							type="text"
-							placeholder="Email address"
-							value={email}
-							onChange={({ target }) => {
-								setEmail(target.value);
-							}}
-						/>
-						<input
-							type="password"
-							placeholder="Password"
-							value={password}
-							onChange={({ target }) => {
-								setPassword(target.value);
-								//console.log(password);
-							}}
-						/>
-					</form>
-					<div className="password-forgotten">Password Forgotten</div>
-				</div>
-				<div className="login-block-bottom">
-					<div className="button">
-						<Button className="btn" onClick={handleLogin}>
-							{" "}
-							Login{" "}
-						</Button>
-					</div>
-					<div className="create-account">
-						<Link exact to="/register">Create account</Link></div>
-				</div>
-			</div>
+			<h1>No user is currently logged in</h1>
 		</div>
 	);
 };
 
-export default Login;
+export default UserMenu;
