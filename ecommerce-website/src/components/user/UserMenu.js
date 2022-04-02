@@ -7,6 +7,8 @@ import { Card, Button, Container, Row } from "react-bootstrap";
 import baseUrl from "../../SystemVariables";
 
 const UserMenu = (props) => {
+	const currentUser = localStorage.getItem("user");
+	const foundUser = JSON.parse(currentUser);
 	//States
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
@@ -54,25 +56,12 @@ const UserMenu = (props) => {
 		navigate("/home");
 	};
 
-	//If a user is already logged in
-	if (JSON.parse(localStorage.getItem("user"))) {
-		const currentUser = localStorage.getItem("user");
-		const foundUser = JSON.parse(currentUser);
-		console.log(foundUser.id);
-
-		return (
-			<div className="page">
-				<h1>User Menu</h1>
-				<h2>{user.firstName + " is logged in"}</h2>
-
+	const verifySeller = () => {
+		if(JSON.parse(localStorage.getItem("user")).typeUser+"" === "seller"){
+			return <div>
+					{/* To view: Items of Seller */}
 				<div className="button">
-					<Link to={`/login/user/${foundUser.id}`}>
-						<Button className="btn">Edit Profile</Button>
-					</Link>
-				</div>
-				{/* To view: Items of Seller */}
-				<div className="button">
-					<Link to={`/login/SellerProducts/${foundUser.id}`}>
+					<Link to={`/login/SellerProducts/${JSON.parse(currentUser).id}`}>
 						<Button className="btn"> View my products </Button>
 					</Link>
 				</div>
@@ -83,7 +72,28 @@ const UserMenu = (props) => {
 						<Button className="btn"> Add a product </Button>
 					</Link>
 				</div>
+			</div>;
+		}
+	}
+	
+	//If a user is already logged in
+	if (foundUser) {
+		
+		console.log(foundUser.id);
+		console.log(JSON.parse(localStorage.getItem("user")).typeUser=== "seller");
+		
+		
+		return (
+			<div className="page">
+				<h1>User Menu</h1>
+				<h2>{user.firstName + " is logged in"}</h2>
 
+				<div className="button">
+					<Link to={`/login/user/${foundUser.id}`}>
+						<Button className="btn">Edit Profile</Button>
+					</Link>
+				</div>
+				<div>{verifySeller()}</div>
 				<div className="button">
 					<Button className="btn" onClick={handleLogout}>
 						{" "}
