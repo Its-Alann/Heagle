@@ -12,6 +12,8 @@ const Login = (props) => {
 	const [password, setPassword] = useState("");
 	const [user, setUser] = useState({});
 	const [errMessage, setErrMessage] = useState("");
+	const currentUser = localStorage.getItem("user");
+	const foundUser = JSON.parse(currentUser);
 
 	const navigate = useNavigate();
 
@@ -75,11 +77,39 @@ const Login = (props) => {
 		navigate("/home");
 	};
 
+	const sellerLoggedIn = () => {
+		if (localStorage.getItem("user").includes("typeUser\":\"seller")){ 
+			return (
+				
+				<Link to={`/login/SellerProducts/${foundUser.id}`}>
+					<Button className="btn" >
+						{" "}
+						View my products{" "}
+					</Button>
+				</Link>
+			)
+		}
+
+		if (localStorage.getItem("user").includes("typeUser\":\"admin")) {
+			return (
+
+				<Link to={`/admin`}>
+					<Button className="btn" >
+						{" "}
+						View all users{" "}
+					</Button>
+				</Link>
+			)
+		}
+
+		else{
+
+		}
+	}
+
 	//If a user is already logged in
 	if (JSON.parse(localStorage.getItem("user"))) {
 
-		const currentUser = localStorage.getItem("user");
-		const foundUser = JSON.parse(currentUser);
 		console.log(foundUser.id);
 
 		return (
@@ -99,14 +129,9 @@ const Login = (props) => {
 				</div> */}
 				
 				{/* To view: Items of Seller */}
+				
 				<div className="button">
-
-					<Link to={`/login/SellerProducts/${foundUser.id}`}>
-						<Button className="btn" >
-							{" "}
-							View my products{" "}
-						</Button>
-					</Link>
+					{sellerLoggedIn()}
 				</div>
 
 				{/* To add: Item of Seller */}

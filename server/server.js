@@ -130,6 +130,35 @@ app.get("/getUser/:id", (req, res) => {
 	});
 });
 
+//Retrieve all users from db
+app.get("/fetchUserList", (req, res) => {
+	const sqlQuery = `SELECT * FROM  e5zkwad79wtbvjrc.temp_users;`;
+	db.query(sqlQuery, (err, result) => {
+		if (err) {
+			console.log(err);
+		} else {
+			res.send(result);
+		}
+	});
+});
+
+// Removes a user based on its id
+// app.delete("/removeUser", (req, res) => {
+// 	const id = req.body.id;
+
+// 	const sqlQuery = "DELETE FROM e5zkwad79wtbvjrc.temp_users WHERE id = ?";
+
+// 	db.query(sqlQuery, [id], (err, result) => {
+// 		if (err) {
+// 			console.log(err);
+// 			res.send(err);
+// 		}
+// 		else {
+// 			res.send("User with id " + id + " has been successfully deleted");
+// 		}
+// 	})
+// })
+
 //Retrieve User Info from Db by email
 app.get("/getUserByEmail/:email", (req, res) => {
 	const searchEmail = req.params.email;
