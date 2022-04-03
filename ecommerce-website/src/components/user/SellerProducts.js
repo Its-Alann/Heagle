@@ -10,14 +10,25 @@ const SellerProducts = () => {
     const navigate = useNavigate();
     const pageId = useParams();
     const [userProducts, setUserProducts ]= useState([]);
+    const [refreshProducts, setRefreshProducts] = useState(0);
 
     useEffect(()=> {
         const getProductFromServer =baseUrl+ "/getSellerProducts/" + pageId.id;
         Axios.get(getProductFromServer).then((response) => {
           setUserProducts(response.data);
         });
-    }, []);
+    }, [refreshProducts]);
 
+    function handleRemoveProduct(prodId){
+      const url = baseUrl + "/removeProduct";
+      Axios.delete(url,{data:{
+        id: prodId,
+        sellerID: pageId.id
+        }
+      }).then((res)=> {
+        setRefreshProducts(refreshProducts+1);
+      });
+    } 
         return(
         // Display seller's item(s)
         <Container Style="padding:20px 0px">
@@ -65,7 +76,9 @@ const SellerProducts = () => {
                         }}>Edit</button>
                       </Row>
                       <Row className="SellerRemoveButton justify-content-center">
-                      <button >Remove</button>
+                      <button onClick={()=>{
+                        handleRemoveProduct(product.id);
+                      }}>Remove</button>
                       </Row>
                   </Col>
                 </Row>

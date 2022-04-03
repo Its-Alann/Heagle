@@ -55,8 +55,8 @@ app.get("/fetchProductList", (req, res) => {
 });
 
 //Removes a product based on its id
-app.delete("/removeProduct/:id", (req, res)=>{
-	const id = req.params.id;
+app.delete("/removeProduct", (req, res)=>{
+	const id = req.body.id;
 	const sellerID = req.body.sellerID;
 
 	const sqlQuery = "DELETE FROM e5zkwad79wtbvjrc.products WHERE id = ? and sellerID = ?";
@@ -67,7 +67,7 @@ app.delete("/removeProduct/:id", (req, res)=>{
 			res.send(err);
 		}
 		else{
-			res.send("Product with id " + id  + "has been successfully deleted");
+			res.send("Product with id " + id  + " has been successfully deleted");
 		}
 	})
 })
