@@ -22,6 +22,7 @@ import SellerProducts from "./components/user/SellerProducts";
 import User from "./components/user/User";
 import Marketplace from "./components/user/Marketplace";
 import EditProduct from "./components/user/EditProduct";
+import Admin from "./components/user/Admin";
 
 function App() {
 	//States
@@ -59,6 +60,7 @@ function App() {
 					<Route path="/login" exact element={<Login/>} />
 					<Route path="/login/user/:id" element={<User/>} />
 					<Route path="/register" exact element={<Register/>} />
+					<Route path="/admin" exact element={<Admin/>} />
 				</Routes>
 				{/* <h2> Food </h2> */}
 
