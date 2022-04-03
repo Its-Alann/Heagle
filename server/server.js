@@ -130,6 +130,18 @@ app.get("/getUser/:id", (req, res) => {
 	});
 });
 
+//Retrieve all users from db
+app.get("/fetchUserList", (req, res) => {
+	const sqlQuery = `SELECT * FROM  e5zkwad79wtbvjrc.temp_users;`;
+	db.query(sqlQuery, (err, result) => {
+		if (err) {
+			console.log(err);
+		} else {
+			res.send(result);
+		}
+	});
+});
+
 //Retrieve User Info from Db by email
 app.get("/getUserByEmail/:email", (req, res) => {
 	const searchEmail = req.params.email;
