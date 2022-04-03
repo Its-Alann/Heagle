@@ -78,7 +78,7 @@ const Login = (props) => {
 	};
 
 	const sellerLoggedIn = () => {
-		if (localStorage.getItem("user").includes("seller")){ 
+		if (localStorage.getItem("user").includes("typeUser\":\"seller")){ 
 			return (
 				
 				<Link to={`/login/SellerProducts/${foundUser.id}`}>
@@ -88,6 +88,22 @@ const Login = (props) => {
 					</Button>
 				</Link>
 			)
+		}
+
+		if (localStorage.getItem("user").includes("typeUser\":\"admin")) {
+			return (
+
+				<Link to={`/admin`}>
+					<Button className="btn" >
+						{" "}
+						View all users{" "}
+					</Button>
+				</Link>
+			)
+		}
+
+		else{
+
 		}
 	}
 
