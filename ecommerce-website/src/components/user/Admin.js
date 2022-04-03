@@ -13,27 +13,37 @@ const Admin = () => {
     const navigate = useNavigate();
     const pageId = useParams();
     const [userProducts, setUserProducts] = useState([]);
-    const [refreshProducts, setRefreshProducts] = useState(0);
+    const [refreshUsers, setRefreshUsers] = useState(0);
 
     useEffect(() => {
         const getProductFromServer = baseUrl + "/fetchUserList"
         Axios.get(getProductFromServer).then((response) => {
             setUserProducts(response.data);
         });
-    }, [refreshProducts]);
+    }, [refreshUsers]);
 
-    function handleRemoveProduct(userId) {
-        const url = baseUrl + "/removeProduct";
+    function handleRemoveUser(userId) {
+        console.log(userId);
+        const url = baseUrl + "/removeUser";
         Axios.delete(url, {
             data: {
                 id: userId,
-                userID: pageId.id
+                typeUser :JSON.parse(localStorage.getItem("user")).typeUser
             }
         }).then((res) => {
-            // setRefreshProducts(refreshProducts + 1);
-            console.log("Success")
+            console.log(res.data);
+            setRefreshUsers(refreshUsers + 1);
         });
     } 
+
+    function isAdmin(){
+        if(localStorage.getItem('user')){
+            return JSON.parse(localStorage.getItem("user")).typeUser === "admin";
+        }
+        else{
+            return false;
+        }
+    }
 
      return (
 
@@ -42,7 +52,7 @@ const Admin = () => {
 
             <h1> List of All Users </h1> 
           {
-              userProducts.length > 0 ?
+              userProducts.length > 0 && isAdmin() ?
                   userProducts.map((user, idx) => (
 
                       <Row>
@@ -75,8 +85,8 @@ const Admin = () => {
                               </Row>
                               <Row className="SellerRemoveButton justify-content-center">
                                   <button onClick={() => {
-                                      handleRemoveProduct(user.id);
-                                  }} disabled>Remove</button>
+                                      handleRemoveUser(user.id);
+                                  }}>Remove</button>
                               </Row>
                           </Col>
                       </Row>
