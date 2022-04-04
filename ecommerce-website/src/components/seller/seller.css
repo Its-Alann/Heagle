@@ -1,0 +1,111 @@
+
+@import url("https://fonts.googleapis.com/css?family=Abel&display=swap");
+
+.page {
+	background-color: #E8E4E4;
+	font-family: Abel;
+	height: 1000px;
+}
+
+.seller-block {
+	width: 55%;
+	height: 55%;
+	box-shadow: 5px 5px 10px grey;
+	background-color: #f4f5f7;
+	margin: auto;
+	/* border: 3px solid green; */
+	padding: 10px;
+}
+
+h3 {
+	color: #00779e;
+    margin-bottom:0 !important;
+}
+
+h4{
+    color: #616161;
+    margin-bottom:0 !important;
+}
+
+#positive-feedback{
+    color: #969696;
+}
+
+#about-us{
+    color: #969696;
+    font-size: 12px;
+}
+
+.seller-block-top {
+	width: 100%;
+	height: auto;
+	/* margin: auto; */
+    margin-bottom: 15px;
+	/* border: 3px solid green; */
+	/* height:30%; */
+}
+
+.seller-block-center {
+	width: 80%;
+	height: auto;
+	margin: auto;
+	/* border: 3px solid green; */
+	/* height:30%; */
+}
+
+.password-forgotten {
+	text-align: right;
+	font-size: 10px;
+	text-decoration: underline;
+}
+
+.seller-block-bottom {
+	width: 80%;
+	margin: auto;
+	/* border: 3px solid green; */
+	/* height:30%; */
+}
+
+.create-account {
+	text-align: center;
+	font-size: 10px;
+	text-decoration: underline;
+}
+
+.error-message {
+	color: red;
+}
+
+input[type="text"] {
+	width: 100%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	box-sizing: border-box;
+	background-color: #d8d8d8;
+	border: 0;
+}
+
+input[type="password"] {
+	width: 100%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	box-sizing: border-box;
+	background-color: #d8d8d8;
+	border: 0;
+}
+
+::placeholder {
+	/* Chrome, Firefox, Opera, Safari 10.1+ */
+	color: #3a3a3a;
+	opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder {
+	/* Internet Explorer 10-11 */
+	color: #3a3a3a;
+}
+
+::-ms-input-placeholder {
+	/* Microsoft Edge */
+	color: #3a3a3a;
+}
