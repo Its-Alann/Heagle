@@ -23,6 +23,8 @@ import User from "./components/user/User";
 import Marketplace from "./components/user/Marketplace";
 import EditProduct from "./components/user/EditProduct";
 import Admin from "./components/user/Admin";
+import Seller from "./components/seller/seller.js";
+import ShoppingCart from "./components/shopping_cart/ShoppingCart.js";
 
 function App() {
 	//States
@@ -39,6 +41,7 @@ function App() {
       <Link to="/food"> Food </Link>*/}
 				<Link to="/login"> Login </Link>
 				<Link to="/register"> Register</Link>
+				<Link to="/seller"> Seller</Link>
 
 				{/* <Home /> */}
 
@@ -61,6 +64,9 @@ function App() {
 					<Route path="/login/user/:id" element={<User/>} />
 					<Route path="/register" exact element={<Register/>} />
 					<Route path="/admin" exact element={<Admin/>} />
+					<Route path="/seller" exact element={<Seller />} />
+					<Route path="/shoppingcart" exact element={<ShoppingCart />} />
+
 				</Routes>
 				{/* <h2> Food </h2> */}
 
