@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'react-bootstrap'
 import 'react-router-dom'
+import 'bootstrap/dist/js/bootstrap.js';
 
 
 ReactDOM.render(
