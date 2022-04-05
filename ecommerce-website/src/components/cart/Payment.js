@@ -1,5 +1,6 @@
 import React from "react";
 import $ from "jquery";
+import cardBrandsLogo from "./cardBrandsLogo.png"
 
 const PaymentComponent = () =>{
       return (
@@ -35,7 +36,16 @@ const PaymentComponent = () =>{
                             <h6>Card number</h6>
                           </label>
                           <div className="input-group"> <input type="text" name="cardNumber" placeholder="Valid card number" className="form-control " required />
-                            <div className="input-group-append"> <span className="input-group-text text-muted"> <i className="fab fa-cc-visa mx-1" /> <i className="fab fa-cc-mastercard mx-1" /> <i className="fab fa-cc-amex mx-1" /> </span> </div>
+                            <div className="input-group-append align-items-center "> <span className="input-group-text text-muted"> 
+                            <img
+                                src={cardBrandsLogo}
+                                className="img-fluid"
+                                alt="cardbrandsLogo"
+                                width={65}
+                                height={80}
+                                
+						                  />
+                              <i className="fab fa-cc-visa mx-auto" /> <i className="fab fa-cc-mastercard mx-auto" /> <i className="fab fa-cc-amex mx-auto" /> </span> </div>
                           </div>
                         </div>
                         <div className="row">
