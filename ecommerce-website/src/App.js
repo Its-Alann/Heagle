@@ -25,6 +25,7 @@ import EditProduct from "./components/user/EditProduct";
 import Admin from "./components/user/Admin";
 import Seller from "./components/seller/seller.js";
 import ShoppingCart from "./components/shopping_cart/ShoppingCart.js";
+import PaymentComponent from "./components/cart/Payment";
 
 function App() {
 	//States
@@ -66,6 +67,7 @@ function App() {
 					<Route path="/admin" exact element={<Admin/>} />
 					<Route path="/seller" exact element={<Seller />} />
 					<Route path="/shoppingcart" exact element={<ShoppingCart />} />
+					<Route path="/payment" exact element={<Payment />} />
 
 				</Routes>
 				{/* <h2> Food </h2> */}

@@ -70,7 +70,7 @@ export default class NavbarMenu extends Component {
                 
                 <Nav.Link as={Link} to="/cart">Cart</Nav.Link>
 
-                
+                <Nav.Link as={Link} to="/payment">Payment</Nav.Link>
                 <Nav.Link as={Link} to="/about">About</Nav.Link>
                 
 
