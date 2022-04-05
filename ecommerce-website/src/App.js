@@ -24,7 +24,7 @@ import Marketplace from "./components/user/Marketplace";
 import EditProduct from "./components/user/EditProduct";
 import Admin from "./components/user/Admin";
 import Seller from "./components/seller/seller.js";
-import ShoppingCart from "./components/shopping_cart/ShoppingCart.js";
+import ShoppingCart from "./components/cart/ShoppingCart.js";
 import PaymentComponent from "./components/cart/Payment";
 
 function App() {
@@ -68,7 +68,8 @@ function App() {
 					<Route path="/admin" exact element={<Admin/>} />
 					<Route path="/seller" exact element={<Seller />} />
 					<Route path="/shoppingcart" exact element={<ShoppingCart />} />
-					<Route path="/payment" exact element={<Payment />} />
+					<Route path="/cart" exact element={<ShoppingCart />} />
+					<Route path="/payment" exact element={<PaymentComponent />} />
 
 				</Routes>
 				{/* <h2> Food </h2> */}
