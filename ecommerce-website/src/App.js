@@ -67,7 +67,7 @@ function App() {
 					<Route path="/admin" exact element={<Admin/>} />
 					<Route path="/seller" exact element={<Seller />} />
 					<Route path="/shoppingcart" exact element={<ShoppingCart />} />
-					<Route path="/payment" exact element={<Payment />} />
+					<Route path="/payment" exact element={<PaymentComponent/>} />
 
 				</Routes>
 				{/* <h2> Food </h2> */}
