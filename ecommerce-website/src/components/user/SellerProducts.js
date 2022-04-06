@@ -26,6 +26,7 @@ const SellerProducts = () => {
         sellerID: pageId.id
         }
       }).then((res)=> {
+        console.log(res.data)
         setRefreshProducts(refreshProducts+1);
       });
     } 

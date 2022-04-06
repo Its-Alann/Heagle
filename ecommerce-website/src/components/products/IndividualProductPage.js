@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import { Button, Container, Row, Col } from "react-bootstrap";
 import baseUrl from "../../SystemVariables";
 import Axios from "axios";
+import addToCart from "../cart/AddToCart";
 
 const IndividualProductPage = ({ match }) => {
 	const pageId = useParams();
@@ -14,6 +15,17 @@ const IndividualProductPage = ({ match }) => {
 	const [selectedProductPrice, setPrice] = useState("");
 	const [selectedProductImageUrl, setImageUrl] = useState("");
 
+	const cartFromLocalStorage = JSON.parse(localStorage.getItem("cart") || "[]");
+
+	const [cart, setCart] = useState(cartFromLocalStorage);
+	const [product, setProductInfo] = useState("");
+	
+
+	// const addToCart = (product) => {
+	// 	setCart([...cart, product]);
+	// };
+
+
 	useEffect(() => {
 		const getProductFromServer =baseUrl+ "/getProduct/" + pageId.id;
 		Axios.get(getProductFromServer).then((response) => {
@@ -21,8 +33,10 @@ const IndividualProductPage = ({ match }) => {
 			setDescription(response.data[0].description);
 			setImageUrl(response.data[0].imageUrl);
 			setPrice(response.data[0].price);
+			setProductInfo(response.data[0]);
 		});
-	}, []);
+		localStorage.setItem('cart', JSON.stringify(cart))
+	}, [cart]);
 
 	return (
 		<Container className="single-product">
@@ -74,7 +88,7 @@ const IndividualProductPage = ({ match }) => {
 							</Row>
 
 							<div className="alert mt-3">
-								<button className="SingleProductAddCartButton">
+								<button onClick={()=> addToCart(product, 1)} className="SingleProductAddCartButton">
 									Add To Cart
 								</button>
 							</div>

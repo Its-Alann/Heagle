@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import "./Products.css";
 import productDatabase from "./productDatabase";
 import { useLocation } from "react-router-dom";
+import addToCart from "../cart/AddToCart";
 
 const ProductCards = () => {
 	//Finds the category of the page using the url
@@ -43,7 +44,7 @@ const ProductCards = () => {
 							{item.currency}{" "}
 						</Card.Text>
 						<div className="button">
-							<Button className="btn"> Add to Cart </Button>
+							<Button className="btn" onClick={()=> addToCart(item, 1)}> Add to Cart </Button>
 						</div>
 					</Card.Body>
 				</div>

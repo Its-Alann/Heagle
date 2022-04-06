@@ -25,7 +25,7 @@ const ProductLoader = (props) => {
 				}); //Updates the App component state 'update', which causes it to re-render after the request has been made.
 		} catch (error) {}
 		//productDatabase = productDatabase.concat(products);
-		console.log(productDatabase);
+		//console.log(productDatabase);
 	}, []);
 
 	return null;

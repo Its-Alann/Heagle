@@ -3,13 +3,14 @@ const app = express();
 const cors = require("cors");
 const mySql = require("mysql");
 const db = require("./db");
+const { restart } = require("nodemon");
 
 app.use(cors());
 app.use(express.json());
 
 app.use(function (req, res, next) {
 	res.header("Access-Control-Allow-Origin", "https://heagle.herokuapp.com"); // update to match the domain you will make the request from
-	// res.header("Access-Control-Allow-Origin", "http://localhost:3000"); // update to match the domain you will make the request from
+	//res.header("Access-Control-Allow-Origin", "http://localhost:3000"); // update to match the domain you will make the request from
 	res.header(
 		"Access-Control-Allow-Headers",
 		"Origin, X-Requested-With, Content-Type, Accept"
@@ -55,24 +56,24 @@ app.get("/fetchProductList", (req, res) => {
 });
 
 //Removes a product based on its id
-app.delete("/removeProduct", (req, res)=>{
+app.delete("/removeProduct", (req, res) => {
 	const id = req.body.id;
 	const sellerID = req.body.sellerID;
 
-	const sqlQuery = "DELETE FROM e5zkwad79wtbvjrc.products WHERE id = ? and sellerID = ?";
+	const sqlQuery =
+		"DELETE FROM e5zkwad79wtbvjrc.products WHERE id = ? and sellerID = ?";
 
-	db.query(sqlQuery, [id, sellerID], (err, result)=>{
-		if(err){
+	db.query(sqlQuery, [id, sellerID], (err, result) => {
+		if (err) {
 			console.log(err);
 			res.send(err);
+		} else {
+			res.send("Product with id " + id + " has been successfully deleted");
 		}
-		else{
-			res.send("Product with id " + id  + " has been successfully deleted");
-		}
-	})
-})
+	});
+});
 
-app.post("/editProduct", (req, res)=>{
+app.post("/editProduct", (req, res) => {
 	const id = req.body.id;
 	const name = req.body.name;
 	const description = req.body.description;
@@ -80,20 +81,23 @@ app.post("/editProduct", (req, res)=>{
 	const quantity = req.body.quantity;
 	const imageUrl = req.body.imageURL;
 	const type = req.body.type;
-	const sellerID = req.body.sellerID;	
+	const sellerID = req.body.sellerID;
 
-	const sqlQuery = "UPDATE e5zkwad79wtbvjrc.products SET name = ?, description = ?, price = ?, quantity = ?, imageUrl = ?, type = ? WHERE id = ? AND sellerID = ?";
+	const sqlQuery =
+		"UPDATE e5zkwad79wtbvjrc.products SET name = ?, description = ?, price = ?, quantity = ?, imageUrl = ?, type = ? WHERE id = ? AND sellerID = ?";
 
-	db.query(sqlQuery, [name, description, price, quantity, imageUrl, type, id, sellerID], (err, result)=>{
-		if(err){
-			console.log(err);
-			res.send(err);
+	db.query(
+		sqlQuery,
+		[name, description, price, quantity, imageUrl, type, id, sellerID],
+		(err, result) => {
+			if (err) {
+				console.log(err);
+				res.send(err);
+			} else {
+				res.send("Product succesfully added to the database");
+			}
 		}
-		else{
-			res.send("Product succesfully added to the database");
-		}
-	});
-
+	);
 });
 
 //Insert User Info to Db
@@ -142,22 +146,28 @@ app.get("/fetchUserList", (req, res) => {
 	});
 });
 
-// Removes a user based on its id
-// app.delete("/removeUser", (req, res) => {
-// 	const id = req.body.id;
+//Removes a user based on its id
+app.delete("/removeUser", (req, res) => {
+	const id = req.body.id;
+	const typeUser = req.body.typeUser;
 
-// 	const sqlQuery = "DELETE FROM e5zkwad79wtbvjrc.temp_users WHERE id = ?";
-
-// 	db.query(sqlQuery, [id], (err, result) => {
-// 		if (err) {
-// 			console.log(err);
-// 			res.send(err);
-// 		}
-// 		else {
-// 			res.send("User with id " + id + " has been successfully deleted");
-// 		}
-// 	})
-// })
+	if(typeUser != 'admin'){
+		res.send("Operation failed: only admin accounts can remove users.")
+	}
+	else{
+		const sqlQuery = "DELETE FROM e5zkwad79wtbvjrc.temp_users WHERE id = ?";
+		db.query(sqlQuery, [id], (err, result) => {
+			if (err) {
+				console.log(err);
+				res.send(err);
+			}
+			else {
+				res.send("User with id " + id + " has been successfully deleted");
+			}
+		})
+	}
+	
+})
 
 //Retrieve User Info from Db by email
 app.get("/getUserByEmail/:email", (req, res) => {
@@ -253,15 +263,79 @@ app.post("/addProduct", (req, res) => {
 	const sqlQuery = `INSERT INTO e5zkwad79wtbvjrc.products (name, imageURL, quantity, description, price, type, sellerID)
 		VALUES (?,?,?,?,?,?,?)`;
 
-	db.query(sqlQuery, [productName, imageURL, quantity, description, price, type, sellerID ], (err, result) => {
-		if (err) {
-			console.log(err);
-		} else {
-			res.send("Product Successfully Added");
-			console.log(result);
+	db.query(
+		sqlQuery,
+		[productName, imageURL, quantity, description, price, type, sellerID],
+		(err, result) => {
+			if (err) {
+				console.log(err);
+			} else {
+				res.send("Product Successfully Added");
+				console.log(result);
+			}
 		}
-	});
+	);
 });
 
 const PORT = process.env.PORT || 3001;
 app.listen(PORT);
+
+
+//-----Cart-----//
+app.post("/createCart", (req, res)=>{
+	const id = req.body.id;
+	const userId = req.body.userId;
+	const cartContent = req.body.cartContent;
+
+	const sqlQuery = `INSERT INTO e5zkwad79wtbvjrc.carts (userId, cartContent) VALUES (?,?)`
+	db.query(
+		sqlQuery,
+		[userId, cartContent],
+		(err, result) => {
+			if (err) {
+				console.log(err);
+				res.send(err);
+			} else {
+				res.send("Cart created successfully");
+				console.log(result);
+			}
+		}
+	);
+})
+
+app.post("/updateCart", (req, res)=>{
+	const userId = req.body.userId;
+	const cartContent = req.body.cartContent;
+
+	const sqlQuery = `UPDATE e5zkwad79wtbvjrc.carts SET cartContent = (?) WHERE userId = ?`
+	db.query(
+		sqlQuery,
+		[cartContent, userId],
+		(err, result) => {
+			if (err) {
+				console.log(err);
+				res.send(err);
+			} else {
+				res.send("Cart updated successfully");
+				console.log(result);
+			}
+		}
+	);
+})
+
+app.get("/getCart/:userId", (req, res)=>{
+	const userId = req.params.userId;
+	const sqlQuery =
+	"SELECT * FROM e5zkwad79wtbvjrc.carts WHERE userId = ?";
+
+	db.query(sqlQuery, [userId],(err, result) => {
+		if (err) {
+			console.log(err);
+			res.send(err);
+		} else {
+			res.send(result);
+			console.log(result);
+		}
+	});
+
+})

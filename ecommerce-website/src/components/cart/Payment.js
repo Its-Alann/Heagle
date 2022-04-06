@@ -62,7 +62,9 @@ const PaymentComponent = () =>{
                               </label> <input type="text" required className="form-control" /> </div>
                           </div>
                         </div>
-                        <div className="card-footer"> <button type="button" className="subscribe btn btn-primary btn-block shadow-sm"> Confirm Payment </button>
+                        <div className="card-footer"> <button type="button" className="subscribe btn btn-primary btn-block shadow-sm" onClick={()=>{
+                        localStorage.setItem("cart", "[]");
+                    }}> Confirm Payment </button>
                         </div></form>
                     </div> {/* End */}
                     {/* Paypal info */}
@@ -102,9 +104,5 @@ const PaymentComponent = () =>{
           </div></div>
       ); 
      };
-
-     $(function() {
-        $('[data-toggle="tooltip"]').tooltip()
-        })
 
 export default PaymentComponent;
