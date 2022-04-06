@@ -14,9 +14,13 @@ export default class NavbarMenu extends Component {
     
   render() {
     
+    
+
+    const currentUser = localStorage.getItem("user");
+		const foundUser = JSON.parse(currentUser);
     const loggedUser = () => {
       if(localStorage.getItem("user")){
-        return <Nav.Link as={Link} to="/UserMenu">{"Welcome, " + JSON.parse(localStorage.getItem("user")).firstName}</Nav.Link>;
+        return <Nav.Link as={Link} to="/login">{"Welcome, " + JSON.parse(localStorage.getItem("user")).firstName}</Nav.Link>;
       }
       else{
         return <Nav.Link as={Link} to={`/login`}>Login</Nav.Link>;
@@ -25,15 +29,9 @@ export default class NavbarMenu extends Component {
 
     const loggedUser2 = () => {
       if(localStorage.getItem("user")){
-        return <Nav.Link as={Link} to={`/UserMenu`}>User</Nav.Link>;
-      }
-      else{
-        return <Nav.Link as={Link} to={`/register`}>Register</Nav.Link>;
+        return <Nav.Link as={Link} to={`/login/user/`+foundUser.id}>User</Nav.Link>;
       }
     }
-
-    const currentUser = localStorage.getItem("user");
-		const foundUser = JSON.parse(currentUser);
 		// console.log("alice in nvbar: " + foundUser.id);
     return (
       <div>
@@ -56,9 +54,9 @@ export default class NavbarMenu extends Component {
                 navbarScroll
             >
                 {loggedUser()}
-                {loggedUser2()}
 
                 <Nav.Link as={Link} to="/home">Home</Nav.Link>
+                {loggedUser2()}
                 
                 <NavDropdown title="Products" id="navbarScrollingDropdown">
                 <NavDropdown.Item as={Link} to="/clothes">Clothes</NavDropdown.Item>

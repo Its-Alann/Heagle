@@ -7,6 +7,7 @@ const addToCart = (product, qty) => {
 
 	//Verifies if the product is already in the cart on local storage
 	const prodInCart = cartFromLocalStorage.find(p => p.id == product.id);//Contains the product if already in the cart, undefined otherwise
+	
 	if(prodInCart){
 		//Gets the index of the product inside the cart array
 		const index = cartFromLocalStorage.indexOf(prodInCart);
@@ -17,7 +18,9 @@ const addToCart = (product, qty) => {
 
 		//Replaces the old cart inside the local storage with the new one.
 		localStorage.setItem('cart', JSON.stringify([...cartFromLocalStorage]));
-	}else{
+	}
+	
+	else{
 		//Creates the new object that will be stored inside the cart in the local storage
 		const cartProduct = {
 			id: product.id,

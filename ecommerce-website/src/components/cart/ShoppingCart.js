@@ -9,8 +9,34 @@ import baseUrl from "../../SystemVariables";
 const ShoppingCart = () => {
 
     const cartFromLocalStorage = JSON.parse(localStorage.getItem("cart") || "[]");
-
     const [cart] = useState(cartFromLocalStorage);
+    const userId = JSON.parse(localStorage.getItem("user")|| "[]").id ;
+
+    const updateCartDb = (response)=>{
+        var apiUrl;
+        if(response === undefined){
+            console.log("undefined");
+            apiUrl="/createCart";
+        }
+        else{
+            console.log("defined");
+            apiUrl="/updateCart";
+        }
+        
+        console.log(apiUrl);
+        Axios.post(baseUrl+apiUrl,{
+            userId: userId,
+            cartContent: localStorage.getItem("cart")
+        });
+    }
+    useEffect(()=>{
+        if(userId){
+            Axios.get(baseUrl + "/getCart/"+ userId).then((res)=>{
+                updateCartDb(res.data[0]);
+                }
+            )
+        }
+    }, [])
     
     return(
         <div className="page">

@@ -95,8 +95,4 @@ const PaymentComponent = () =>{
       ); 
      };
 
-     $(function() {
-        $('[data-toggle="tooltip"]').tooltip()
-        })
-
 export default PaymentComponent;
