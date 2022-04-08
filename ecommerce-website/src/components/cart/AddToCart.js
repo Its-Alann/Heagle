@@ -27,6 +27,7 @@ const addToCart = (product, qty) => {
 			name: product.name,
 			quantity: qty,
 			price: (qty*product.price),
+			imageUrl: product.imageUrl,
 		}
 		//Sets the previous cart and the newly added product inside the local storage
 		localStorage.setItem('cart', JSON.stringify([...cartFromLocalStorage, cartProduct]));

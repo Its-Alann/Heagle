@@ -95,7 +95,7 @@ const ShoppingCart = () => {
                                     
                                     </Row>
                                     
-                                )) : <div className="retryBtn"><h1>in else statement</h1></div>
+                                )) : <div className="retryBtn"><h1>Shopping Cart Empty!</h1></div>
                             }
                             </Container >
 
