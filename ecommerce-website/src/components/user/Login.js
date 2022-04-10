@@ -14,6 +14,7 @@ const Login = (props) => {
 	const [errMessage, setErrMessage] = useState("");
 	const currentUser = localStorage.getItem("user");
 	const foundUser = JSON.parse(currentUser);
+	const [cart, setCart] = useState({});
 
 	const navigate = useNavigate();
 
@@ -48,11 +49,26 @@ const Login = (props) => {
 			//If credz are valid
 			setErrMessage(user.firstName + " LOGGED IN");
 			localStorage.setItem("user", JSON.stringify(user));
+			handleCart(user.id);
 			navigate("/home"); //Refreshes the App.js component (mainly for the navbar).
 		}
 
 
-	}, [user]);
+	}, [user, cart]);
+
+	// Import the cart values from db to localStorage for the user logged in
+	const handleCart = (pId) => {
+		const cartUrl = baseUrl + "/getCart/" + pId;
+		try {
+			Axios.get(cartUrl).then((response) => {
+				setCart(response.data[0].cartContent);
+				localStorage.setItem("cart", (response.data[0].cartContent));
+			});
+
+		} catch (err) {
+			setErrMessage("Cart not found");
+		}
+	};
 
 	const handleLogin = async (e) => {
 		e.preventDefault();
@@ -73,7 +89,8 @@ const Login = (props) => {
 		setUser({});
 		setErrMessage("");
 		localStorage.removeItem("user");
-		console.log("User logged out.");
+		localStorage.removeItem("cart");
+		console.log("User logged out & cart removed.");
 		navigate("/home");
 	};
 

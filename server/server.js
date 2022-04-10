@@ -348,7 +348,7 @@ app.post("/updateUser", (req, res) => {
 			console.log(err);
 		} else {
 			res.send("User Successfully Updated Info");
-			console.log(result);
+			// console.log(result);
 		}
 	});
 });
@@ -388,7 +388,7 @@ app.post("/addProduct", (req, res) => {
 				console.log(err);
 			} else {
 				res.send("Product Successfully Added");
-				console.log(result);
+				// console.log(result);
 			}
 		}
 	);
@@ -414,14 +414,14 @@ app.post("/createCart", (req, res)=>{
 				res.send(err);
 			} else {
 				res.send("Cart created successfully");
-				console.log(result);
+				// console.log(result);
 			}
 		}
 	);
 })
 
 app.post("/updateCart", (req, res)=>{
-	const userId = req.body.userId;
+	const userId = req.body.userId; 
 	const cartContent = req.body.cartContent;
 
 	const sqlQuery = `UPDATE e5zkwad79wtbvjrc.carts SET cartContent = (?) WHERE userId = ?`
@@ -434,13 +434,13 @@ app.post("/updateCart", (req, res)=>{
 				res.send(err);
 			} else {
 				res.send("Cart updated successfully");
-				console.log(result);
+				// console.log(result);
 			}
 		}
 	);
 })
 
-app.get("/getCart/:userId", (req, res)=>{
+app.get("/getCart/:userId", (req, res)=>{ 
 	const userId = req.params.userId;
 	const sqlQuery =
 	"SELECT * FROM e5zkwad79wtbvjrc.carts WHERE userId = ?";
@@ -451,7 +451,7 @@ app.get("/getCart/:userId", (req, res)=>{
 			res.send(err);
 		} else {
 			res.send(result);
-			console.log(result);
+			// console.log(result);
 		}
 	});
 
