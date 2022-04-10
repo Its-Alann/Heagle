@@ -80,7 +80,7 @@ const Login = (props) => {
 	const sellerLoggedIn = () => {
 		if (localStorage.getItem("user").includes("typeUser\":\"seller")){ 
 			return (
-				
+
 				<Link to={`/login/SellerProducts/${foundUser.id}`}>
 					<Button className="btn" >
 						{" "}
@@ -92,7 +92,6 @@ const Login = (props) => {
 
 		if (localStorage.getItem("user").includes("typeUser\":\"admin")) {
 			return (
-
 				<Link to={`/admin`}>
 					<Button className="btn" >
 						{" "}
@@ -104,6 +103,20 @@ const Login = (props) => {
 
 		else{
 
+		}
+	}
+
+	const showAddProductBtn = () => {
+		if (localStorage.getItem("user").includes("typeUser\":\"admin" || "typeUser\":\"seller")) {
+			return (
+
+				<Link to={`/login/SellerProducts/add/${foundUser.id}`}>
+					<Button className="btn" >
+						{" "}
+						Add a product{" "}
+					</Button>
+				</Link>
+			)
 		}
 	}
 
@@ -137,12 +150,13 @@ const Login = (props) => {
 				{/* To add: Item of Seller */}
 				<div className="button">
 
-					<Link to={`/login/SellerProducts/add/${foundUser.id}`}>
+					{/* <Link to={`/login/SellerProducts/add/${foundUser.id}`}>
 						<Button className="btn" >
 							{" "}
 							Add a product{" "}
 						</Button>
-					</Link>
+					</Link> */}
+					{showAddProductBtn()}
 				</div>
 
 				<div className="button">
