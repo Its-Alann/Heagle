@@ -26,6 +26,7 @@ import Admin from "./components/user/Admin";
 import Seller from "./components/seller/seller.js";
 import ShoppingCart from "./components/cart/ShoppingCart.js";
 import PaymentComponent from "./components/cart/Payment";
+import AdminActions from "./components/user/AdminActions";
 
 function App() {
 	//States
@@ -66,6 +67,7 @@ function App() {
 					<Route path="/login/user/:id" element={<User/>} />
 					<Route path="/register" exact element={<Register/>} />
 					<Route path="/admin" exact element={<Admin/>} />
+					<Route path="/adminAction" exact element={<AdminActions/>} />
 					<Route path="/seller" exact element={<Seller />} />
 					<Route path="/shoppingcart" exact element={<ShoppingCart />} />
 					<Route path="/cart" exact element={<ShoppingCart />} />

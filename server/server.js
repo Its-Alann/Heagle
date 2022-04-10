@@ -9,8 +9,6 @@ app.use(cors());
 app.use(express.json());
 
 app.use(function (req, res, next) {
-	res.header("Access-Control-Allow-Origin", "https://heagle.herokuapp.com"); // update to match the domain you will make the request from
-	//res.header("Access-Control-Allow-Origin", "http://localhost:3000"); // update to match the domain you will make the request from
 	res.header(
 		"Access-Control-Allow-Headers",
 		"Origin, X-Requested-With, Content-Type, Accept"
@@ -115,22 +113,106 @@ app.post("/editProduct", (req, res) => {
 	);
 });
 
+//Insert  User type (seller) to temp_user Db, when Admin accepts
+app.post("/acceptSeller", (req, res) => {
+	const sellerID = req.body.sellerID;
+	const typeUser = req.body.typeUser;
+
+	const sqlQuery =
+	"UPDATE e5zkwad79wtbvjrc.temp_users SET typeUser = ? WHERE id=" + sellerID;
+	db.query(sqlQuery,[typeUser],
+	(err, result) => {
+		if (err) {
+			console.log(err);
+			res.send(err);
+		} else {
+			res.send("Admin completed task: user " + sellerID + " is now a Seller.");
+		}
+	});
+});
+
+//Insert  User type (customer) to temp_user Db, when Admin refuses
+app.post("/refuseSeller", (req, res) => {
+	const sellerID = req.body.sellerID;
+	const typeUser = req.body.typeUser;
+
+	const sqlQuery =
+	"UPDATE e5zkwad79wtbvjrc.temp_users SET typeUser = ? WHERE id=" + sellerID;
+	db.query(sqlQuery,[typeUser],
+	(err, result) => {
+		if (err) {
+			console.log(err);
+			res.send(err);
+		} else {
+			res.send("Admin completed task: user " + sellerID + " is now a Customer.");
+		}
+	});
+});
+
 //Insert User Info to Db
 app.post("/registerUser", (req, res) => {
 	const email = req.body.email;
 	const password = req.body.password;
 	const firstName = req.body.firstName;
 	const lastName = req.body.lastName;
+	const typeUser = req.body.typeUser;
 
-	const sqlQuery = `INSERT INTO e5zkwad79wtbvjrc.temp_users (email, password, firstName, lastName)
+	// Include typeUser
+	if(typeUser == "customer"){
+		const sqlQuery = `INSERT INTO e5zkwad79wtbvjrc.temp_users (email, password, firstName, lastName, typeUser)	
+		VALUES (?,?,?,?,?)`;
+
+		db.query(sqlQuery, [email, password, firstName, lastName, typeUser], (err, result) => {
+			if (err) {
+				console.log(err);
+			} else {
+				// res.send("User Successfully Registered");
+				res.send(""+result.insertId);
+			} 
+		});
+	}
+	// Don't include typeUser
+	else if (typeUser == "seller"){
+		const sqlQuery = `INSERT INTO e5zkwad79wtbvjrc.temp_users (email, password, firstName, lastName)
 		VALUES (?,?,?,?)`;
 
-	db.query(sqlQuery, [email, password, firstName, lastName], (err, result) => {
+		db.query(sqlQuery, [email, password, firstName, lastName], (err, result) => {
+			if (err) {
+				console.log(err);
+			} else {
+				// res.send("User Successfully Registered");
+				res.send(""+result.insertId);
+			} 
+		});
+	}
+});
+
+//Insert user request to become seller to admin_actions Db
+app.post("/requestSellerType/:id", (req, res) => {
+	const sellerID = req.body.id;
+	const typeUser = req.body.typeUser;
+
+	const sqlQuery = `INSERT INTO e5zkwad79wtbvjrc.admin_actions (sellerID, typeUser)
+		VALUES (?,?)`;
+
+	db.query(sqlQuery, [sellerID, typeUser], (err, result) => {
 		if (err) {
 			console.log(err);
 		} else {
-			res.send("User Successfully Registered");
-			console.log(result);
+			res.send("Seller's request entered successfully");
+		}
+	});
+});
+
+//Retrieve admin action(s) from Db
+app.get("/getAdminActions", (req, res) => {
+	const sqlQuery =
+		"SELECT * FROM e5zkwad79wtbvjrc.admin_actions";
+	db.query(sqlQuery, (err, results) => {
+		if (err) {
+			throw err;
+		} else {
+			res.send(results);
 		}
 	});
 });
@@ -181,6 +263,24 @@ app.delete("/removeUser", (req, res) => {
 			}
 		})
 	}
+	
+})
+
+//Removes an admin's action (user request to be seller) based on user's id, when admin manages this user's account
+app.delete("/removeAdminAction", (req, res) => {
+	const sellerID = req.body.sellerID;
+	const typeUser = req.body.typeUser;
+
+	const sqlQuery = "DELETE FROM e5zkwad79wtbvjrc.admin_actions WHERE sellerID = ?";
+	db.query(sqlQuery, [sellerID], (err, result) => {
+		if (err) {
+			console.log(err);
+			res.send(err);
+		}
+		else {
+			res.send("User " + sellerID + " has been successfully deleted from Admin Actions");
+		}
+	})
 	
 })
 

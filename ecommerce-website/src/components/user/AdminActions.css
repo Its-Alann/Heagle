@@ -1,0 +1,29 @@
+/* AdminActions - Start */
+.SellerButtons button{
+    width:100px;
+    /* font-weight: bold; */
+    border-radius: 4px;
+    color: #fff;
+    height: 50px;
+    border: 0;
+    font-size: 15px;
+    transition: all 0.5s ease-in-out 0s;
+    margin: 1px;
+  }
+  .SellerEditButton button{
+    background: #1eada6d2;
+  }
+  .SellerEditButton button:hover,
+  .SellerEditButton button:focus {
+    background: #03b8af85;
+  }  
+  .SellerRemoveButton button{
+    background:#969696;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  .SellerRemoveButton button:hover,
+  .SellerRemoveButton button:focus {
+    background: #96969685;
+  }
+/* AdminActions - End */

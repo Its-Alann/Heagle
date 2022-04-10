@@ -50,7 +50,7 @@ const Login = (props) => {
 			localStorage.setItem("user", JSON.stringify(user));
 			navigate("/home"); //Refreshes the App.js component (mainly for the navbar).
 		}
-		
+
 
 	}, [user]);
 
@@ -77,8 +77,8 @@ const Login = (props) => {
 		navigate("/home");
 	};
 
-	const sellerLoggedIn = () => {
-		if (localStorage.getItem("user").includes("typeUser\":\"seller")){ 
+	const sellerLoggedIn_ViewProducts = () => {
+		if (localStorage.getItem("user").includes("typeUser\":\"seller") || localStorage.getItem("user").includes("typeUser\":\"admin")){ 
 			return (
 
 				<Link to={`/login/SellerProducts/${foundUser.id}`}>
@@ -90,6 +90,9 @@ const Login = (props) => {
 			)
 		}
 
+	}
+
+	const displayAllUsers  = () => {
 		if (localStorage.getItem("user").includes("typeUser\":\"admin")) {
 			return (
 				<Link to={`/admin`}>
@@ -100,9 +103,33 @@ const Login = (props) => {
 				</Link>
 			)
 		}
+	}
 
-		else{
+	// Redirect to Admin Action Page, where admin can manager user's request
+	const displayAdminAction  = () => {
+		if (localStorage.getItem("user").includes("typeUser\":\"admin")) {
+			return (
 
+				<Link to={`/adminAction`}>
+					<Button className="btn" >
+						{" "}
+						View all Admin's actions{" "}
+					</Button>
+				</Link>
+			)
+		}
+	}
+
+	const sellerLoggedIn_AddProduct = () => {
+		if (localStorage.getItem("user").includes("typeUser\":\"seller") || localStorage.getItem("user").includes("typeUser\":\"admin")){ 
+			return (
+				<Link to={`/login/SellerProducts/add/${foundUser.id}`}>
+				<Button className="btn" >
+					{" "}
+					Add a product{" "}
+				</Button>
+			</Link>
+			)
 		}
 	}
 
@@ -144,21 +171,22 @@ const Login = (props) => {
 				{/* To view: Items of Seller */}
 				
 				<div className="button">
-					{sellerLoggedIn()}
+					{sellerLoggedIn_ViewProducts()}
+				</div>
+				
+				<div className="button">
+					{displayAllUsers()}
 				</div>
 
 				{/* To add: Item of Seller */}
 				<div className="button">
-
-					{/* <Link to={`/login/SellerProducts/add/${foundUser.id}`}>
-						<Button className="btn" >
-							{" "}
-							Add a product{" "}
-						</Button>
-					</Link> */}
-					{showAddProductBtn()}
+				{sellerLoggedIn_AddProduct()}
 				</div>
-
+				
+				{/* To manage: User requests */}
+				<div className="button">
+				{displayAdminAction()}
+				</div>
 				<div className="button">
 					<Button className="btn" onClick={handleLogout}>
 						{" "}

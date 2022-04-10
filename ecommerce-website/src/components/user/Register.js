@@ -16,9 +16,23 @@ const Register = () => {
     const [email, setEmail] = useState("");
     const [emailConfirm, setEmailConfirm] = useState({});
     const [phoneNumber, setPhone] = useState("");
+    const [typeUser, setUserType] = useState("");
     const [errMessage, setErrMessage] = useState("");
     const [formConfirm, setFormConfirm] = useState(false);
+    const [id, setId] = useState("");
     const navigate = useNavigate();
+
+    // Post in Db, the user's type
+    const requestSellerType = (pId) => {
+        const url = baseUrl + "/requestSellerType/"+pId
+
+        if(typeUser == "seller"){
+            Axios.post(url, {
+                id: pId,
+                typeUser: typeUser
+            });    
+        }
+    }
 
     useEffect(() => {
 
@@ -45,38 +59,50 @@ const Register = () => {
             setErrMessage("Please enter a phone number")
         }
         
+        else if (typeUser == "") {
+            setErrMessage("Please enter an user type")
+            
+        }
+        
         else {
             setErrMessage("")
             setFormConfirm(true)
         }
         
-    }, [firstName, password, passwordConfirm, email, phoneNumber])
+    }, [firstName, password, passwordConfirm, email, phoneNumber, typeUser])
     
+
+
     const handleSignUp = () => {
         
         const url = baseUrl + "/registerUser"
 
-        
+
         if (password != passwordConfirm) {
             setErrMessage("Passwords do not match")
         }
         
+
         else if (password === passwordConfirm && formConfirm == true) {
             setErrMessage("")
 
             Axios.post(url, {
-    
                 firstName: firstName,
                 lastName: lastName,
                 password: password,
                 email: email,
-                phoneNumber: phoneNumber
-            }).then((console.log("Success")))
+                phoneNumber: phoneNumber,
+                typeUser: typeUser
+            }).then(
+                (res)=>{
+                setId(res.data)
+                requestSellerType(res.data);
+                }
+            )
             navigate("/login");
     
         }
         
-        // console.log(user)
     }
 
     return(
@@ -111,6 +137,9 @@ const Register = () => {
                         }}/>
                         <input type="text" placeholder='Phone number' onChange={({ target }) => {
                             setPhone(target.value);
+                        }}/>
+                        <input type="text" placeholder='customer or seller' onChange={({ target }) => {
+                            setUserType(target.value);
                         }}/>
                     </form>
                     <h6 className="error-message">{errMessage}</h6>

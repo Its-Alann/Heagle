@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import Axios from "axios";
 import { Container, Row, Col, Button } from 'react-bootstrap'
-import './SellerProducts.css'
 import './Admin.css'
 import baseUrl from "../../SystemVariables";
 import { Link } from "react-router-dom";
@@ -11,14 +10,14 @@ import { Link } from "react-router-dom";
 const Admin = () => {
 
     const navigate = useNavigate();
-    const pageId = useParams();
-    const [userProducts, setUserProducts] = useState([]);
+    const [userList, setUserList] = useState([]);
+
     const [refreshUsers, setRefreshUsers] = useState(0);
 
     useEffect(() => {
-        const getProductFromServer = baseUrl + "/fetchUserList"
-        Axios.get(getProductFromServer).then((response) => {
-            setUserProducts(response.data);
+        const getUserFromServer = baseUrl + "/fetchUserList"
+        Axios.get(getUserFromServer).then((response) => {
+            setUserList(response.data);
         });
     }, [refreshUsers]);
 
@@ -48,16 +47,16 @@ const Admin = () => {
      return (
 
          
-         <Container Style="padding:20px 0px">
+        <Container Style="padding:20px 0px; font-family: Abel;">
 
             <h1> List of All Users </h1> 
           {
-              userProducts.length > 0 && isAdmin() ?
-                  userProducts.map((user, idx) => (
+              userList.length > 0 && isAdmin() ?
+                userList.map((user, idx) => (
 
-                      <Row>
+                    <Row style={{margin: '50px'}}>
                           <Col Col lg={true} className="align-self-center">
-                              {/* Product Image */}
+                              {/* User ID */}
                               <div className="row-md-6 single-image">
                                   User ID: {user.id}
                               </div>
@@ -66,12 +65,14 @@ const Admin = () => {
                           <Col Col lg={true}>
                               <div className="product-dtl bg-light">
                                   {/* User Email */}
-                                  <div className="">{user.email}</div>
+                                  <div>{user.email}</div>
 
-                                  {/* Product Description */}
-                                  <div className="">
-                                      <p> Password: {user.password}</p>
-                                  </div>
+                                  {/* User Password */}
+                                  <div><p> Password: {user.password}</p></div>
+
+                                  {/* User Type */}
+                                  <div><p> User Type: {user.typeUser}</p></div>
+
 
                               </div>
                           </Col>
@@ -91,7 +92,10 @@ const Admin = () => {
                           </Col>
                       </Row>
 
-                  )) : <div className="retryBtn"><Link exact to="/login"><Button>Please retry logging in</Button></Link></div>
+                 )) : <div className="retryBtn">
+                        <h4 Style="padding:20px;">No User</h4>
+                        <Link exact to="/login"><Button> Go Back to Login Options</Button></Link>
+                      </div>
           }
 
       </Container >
