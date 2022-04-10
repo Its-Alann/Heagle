@@ -36,6 +36,40 @@ const ShoppingCart = () => {
                 }
             )
         }
+
+        // display the correct products (manage quantity)
+        cart.map((product, idx) => (
+            Axios.get(baseUrl + "/getProductQty/"+ product.id).then((res)=>{
+                
+                // console.log("Item " + product.id + ": "+ res.data.length);
+                // console.log("Initial Cart:");
+                // console.log(cart);
+
+                // if added product(s) in cart is/are removed in seller's product list, then remove the added product(s) in cart
+                if(res.data.length === 0){  // found the product to be deleted
+                    
+                    // console.log(product.id + ": to be deleted");
+                    cart.splice(idx, 1);
+                    console.log("After Cart:");
+                    console.log(cart);
+
+                    localStorage.setItem('cart', JSON.stringify([...cartFromLocalStorage])); //update item in localStorage
+                    window.location.reload(false); //refresh page to display accordingly (to remove if can find better solution)  
+  
+                }
+                else{
+                    // if request quantity of the added product(s) in cart > seller's quantity product, then display seller's quantity & adjust price
+                    // else display request quantity of client
+                    if(product.quantity > res.data[0].quantity){
+                        console.log(product.id + ": in Qty fct when clients qty > sellers qty");
+                        cart[idx].quantity =  res.data[0].quantity;
+                        cart[idx].price =  res.data[0].quantity*res.data[0].price;
+                        localStorage.setItem('cart', JSON.stringify([...cartFromLocalStorage]));    //update qty and price of item in localStorage
+                        window.location.reload(false);  //refresh page to display accordingly (to remove if can find better solution)                    
+                    }
+                }
+            }, [])
+        ))
     }, [])
     
     return(
@@ -80,12 +114,12 @@ const ShoppingCart = () => {
                                     
                                         <div className="p-3 shadow-sm rounded">
                                             {/* Product Price */}
-                                            <div className="product-count">${product.price}</div>
+                                            <div className="product-count">${product.price}</div> {/*(to change variable if can find better solution)*/}
                                     
                                             {/* Product Quantity */}
                                             <Row className="justify-content-md-center">
                                             <div className="quantity">
-                                                <p className="alert">Quantity: {product.quantity}</p>
+                                                <p className="alert">Quantity: {product.quantity}</p> {/*(to change variable if can find better solution)*/}
                                             </div>
                                             </Row>
                                         </div>
