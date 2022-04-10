@@ -1,4 +1,5 @@
 import React, { Component, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 import {Navbar, Nav, NavDropdown, Form, FormControl, Button, Container} from 'react-bootstrap'
 import{Link} from "react-router-dom"
 import "./Navbar.css"
@@ -13,9 +14,7 @@ export default class NavbarMenu extends Component {
   }
     
   render() {
-    
-    
-
+        
     const currentUser = localStorage.getItem("user");
 		const foundUser = JSON.parse(currentUser);
     const loggedUser = () => {
@@ -23,15 +22,27 @@ export default class NavbarMenu extends Component {
         return <Nav.Link as={Link} to="/login">{"Welcome, " + JSON.parse(localStorage.getItem("user")).firstName}</Nav.Link>;
       }
       else{
-        return <Nav.Link as={Link} to={`/login`}>Login</Nav.Link>;
+        return <Nav>
+
+          <Nav.Link as={Link} to={`/login`}>Login</Nav.Link>
+          <Nav.Link as={Link} to={`/register`}>Register</Nav.Link>
+
+        </Nav> 
+        ;
       }
     }
 
     const loggedUser2 = () => {
       if(localStorage.getItem("user")){
-        return <Nav.Link as={Link} to={`/login/user/`+foundUser.id}>User</Nav.Link>;
+        return <NavDropdown title="User" id="navbarScrollingDropdown"> 
+          <NavDropdown.Item as={Link} to={`/login/user/` + foundUser.id}>Edit Profile</NavDropdown.Item>
+          <NavDropdown.Item as={Link} to={"/login"} onClick={() => { localStorage.removeItem("user"); window.location.reload();}}>Logout</NavDropdown.Item>
+        
+        </NavDropdown>;
       }
     }
+
+
 		// console.log("alice in nvbar: " + foundUser.id);
     return (
       <div>
@@ -68,7 +79,7 @@ export default class NavbarMenu extends Component {
                 
                 <Nav.Link as={Link} to="/cart">Cart</Nav.Link>
 
-                <Nav.Link as={Link} to="/payment">Payment</Nav.Link>
+                {/* <Nav.Link as={Link} to="/payment">Payment</Nav.Link> */}
                 <Nav.Link as={Link} to="/about">About</Nav.Link>
                 
 

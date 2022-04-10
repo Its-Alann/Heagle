@@ -41,10 +41,10 @@ function App() {
         <Link to="/electronics"> Electronics </Link>
         <Link to="/clothes"> Clothing </Link>
       <Link to="/food"> Food </Link>*/}
-				<Link to="/login"> Login </Link>
-				<Link to="/register"> Register</Link>
-				<Link to="/seller"> Seller</Link>
-				<Link to="/shoppingcart"> ShoppingCart</Link>
+				{/* <Link to="/login"> Login </Link> */}
+				{/* <Link to="/register"> Register</Link> */}
+				{/* <Link to="/seller"> Seller</Link> */}
+				{/* <Link to="/shoppingcart"> ShoppingCart</Link> */}
 
 				{/* <Home /> */}
 

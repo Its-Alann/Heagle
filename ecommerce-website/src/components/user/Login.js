@@ -80,7 +80,7 @@ const Login = (props) => {
 	const sellerLoggedIn_ViewProducts = () => {
 		if (localStorage.getItem("user").includes("typeUser\":\"seller") || localStorage.getItem("user").includes("typeUser\":\"admin")){ 
 			return (
-				
+
 				<Link to={`/login/SellerProducts/${foundUser.id}`}>
 					<Button className="btn" >
 						{" "}
@@ -95,7 +95,6 @@ const Login = (props) => {
 	const displayAllUsers  = () => {
 		if (localStorage.getItem("user").includes("typeUser\":\"admin")) {
 			return (
-
 				<Link to={`/admin`}>
 					<Button className="btn" >
 						{" "}
@@ -130,6 +129,20 @@ const Login = (props) => {
 					Add a product{" "}
 				</Button>
 			</Link>
+			)
+		}
+	}
+
+	const showAddProductBtn = () => {
+		if (localStorage.getItem("user").includes("typeUser\":\"admin" || "typeUser\":\"seller")) {
+			return (
+
+				<Link to={`/login/SellerProducts/add/${foundUser.id}`}>
+					<Button className="btn" >
+						{" "}
+						Add a product{" "}
+					</Button>
+				</Link>
 			)
 		}
 	}

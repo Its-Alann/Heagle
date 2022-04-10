@@ -148,10 +148,10 @@ const ShoppingCart = () => {
                 </div>
                
                 <div className="shoppingcart-block-bottom">
-                    <button type="button" class="btn btn btn-primary"> Checkout </button>
+                        <Link to="/payment" className="btn btn-primary">Checkout</Link>
                 </div>
-                
-                 
+
+
             </div>
             </Row>
         </div>
