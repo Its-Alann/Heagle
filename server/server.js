@@ -42,6 +42,21 @@ app.get("/getProduct/:id", (req, res) => {
 	});
 });
 
+//Retrieve product quantity and price from Db
+app.get("/getProductQty/:id", (req, res) => {
+	const searchId = req.params.id;
+	const sqlQuery =
+		"SELECT price, quantity FROM e5zkwad79wtbvjrc.products WHERE id='" + searchId + "'";
+	db.query(sqlQuery, (err, results) => {
+		if (err) {
+			throw err;
+		} else {
+			// console.log(results)
+			res.send(results);
+		}
+	});
+});
+
 //Retrieve Products from Db
 app.get("/fetchProductList", (req, res) => {
 	const sqlQuery = `SELECT * FROM  e5zkwad79wtbvjrc.products
