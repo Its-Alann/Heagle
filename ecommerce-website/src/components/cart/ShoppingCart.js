@@ -11,6 +11,9 @@ const ShoppingCart = () => {
     const cartFromLocalStorage = JSON.parse(localStorage.getItem("cart") || "[]");
     const [cart] = useState(cartFromLocalStorage);
     const userId = JSON.parse(localStorage.getItem("user")|| "[]").id ;
+    
+    const [totalPrice, setTotalPrice] = useState(0);
+    var totalPrice2 = 0;
 
     const updateCartDb = (response)=>{
         var apiUrl;
@@ -41,6 +44,10 @@ const ShoppingCart = () => {
         cart.map((product, idx) => (
             Axios.get(baseUrl + "/getProductQty/"+ product.id).then((res)=>{
                 
+                totalPrice2 = totalPrice2 + product.price
+                    setTotalPrice(totalPrice2)
+
+
                 // console.log("Item " + product.id + ": "+ res.data.length);
                 // console.log("Initial Cart:");
                 // console.log(cart);
@@ -139,6 +146,9 @@ const ShoppingCart = () => {
                    
                     <div id="shoppingcart-block-center-right">
                             <h3> Summary</h3>
+                            Total: {totalPrice} $
+                            
+                            
                     </div>
                    
                    </Col>
