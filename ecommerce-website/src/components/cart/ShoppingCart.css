@@ -56,15 +56,15 @@ h4{
 
 #shoppingcart-block-center-left{
 	display: inline-block;
-	width:50%;
+	width:90%;
 	height:80%;
-	background-color: aqua;
+	/* background-color: aqua; */
 }
 
 #shoppingcart-block-center-right{
 	display: inline-block;
 	width:50%;
-	height: 60%;
+	height: 30%;
 	background-color: #E7E7E7;
 }
 

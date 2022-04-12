@@ -94,7 +94,7 @@ const ShoppingCart = () => {
                     
                         <div id="shoppingcart-block-center-left">
                         {/* temporary */}
-                            <h1>left</h1>
+                            <h3>My Items</h3>
 
                             <Container Style="padding:20px 0px">
                             {
