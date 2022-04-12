@@ -8,7 +8,7 @@ import baseUrl from "../../SystemVariables";
 
 
 
-const User = () => {
+const User = (props) => {
     const navigate = useNavigate();
 
 	const userId = useParams();
@@ -72,7 +72,18 @@ const User = () => {
             }).then(() => {
                 console.log("Edit user info - success.")        
             });
-            navigate("/login");
+            
+            //prompt user to log back in
+            setEmail("");
+            setPassword("");
+            setErrMessage("");
+            localStorage.removeItem("user");
+            localStorage.removeItem("cart");
+            console.log("User logged out and cart removed");
+
+            navigate("/home");
+
+            
         };
     }
 
