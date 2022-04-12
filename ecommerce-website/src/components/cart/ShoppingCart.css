@@ -57,7 +57,7 @@ h4{
 #shoppingcart-block-center-left{
 	display: inline-block;
 	width:90%;
-	height:80%;
+	height:auto;
 	/* background-color: aqua; */
 }
 
