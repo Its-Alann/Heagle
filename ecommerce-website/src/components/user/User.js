@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {Button, Container, Form, Row, Col} from 'react-bootstrap'
+import {Button} from 'react-bootstrap'
 import './User.css'
 import { useParams } from "react-router-dom";
 import Axios from "axios";
@@ -28,7 +28,6 @@ const User = () => {
     useEffect(()=> {
         const getUserFromServer = baseUrl + "/getUser/" + userId.id  
         Axios.get(getUserFromServer).then((response) => {
-            setPassword(response.data[0].password);
             setEmail(response.data[0].email);
             setTel(response.data[0].phoneNumber);
             setFirstName(response.data[0].firstName);
@@ -38,12 +37,29 @@ const User = () => {
           });
     }, []);
 
+    useEffect(()=> {
+        if (selectedUserPassword === "") {
+            setErrMessage("Please enter a password")
+        }
+        else if (passwordConfirm === "") {
+            setErrMessage("Please confirm the password")
+        }
+        else {
+            setErrMessage("")
+        }
+    }, [selectedUserPassword, passwordConfirm]);
+
     const updateUser = () => {
         
-        if (selectedUserPassword != passwordConfirm) {
+        if (selectedUserPassword !== passwordConfirm) {
             setErrMessage("Passwords do not match")
         }
-        else{
+        else if(selectedUserPassword === "" && passwordConfirm === ""){
+            navigate("/login/user/"+ userId.id)
+        }
+        else if (selectedUserPassword === passwordConfirm){
+            setErrMessage("")
+
             Axios.post(baseUrl+"/updateUser", {
                 password: selectedUserPassword,
                 email: selectedUserEmail,
@@ -54,11 +70,11 @@ const User = () => {
                 typeSeller: selectedTypeSeller,
                 userID: userId.id
             }).then(() => {
-                console.log("SUCEECESSS!!")
-                
+                console.log("Edit user info - success.")        
             });
+            navigate("/login");
         };
-        }
+    }
 
     const goHome = () =>{
         navigate("/home")
@@ -77,73 +93,33 @@ const User = () => {
                 </div>
 
                 <div className="register-block-centre">
-                    <Form>
-                        <Form.Group> 
-                            {/* <Form.Control> */}
-                                <input 
-                                    type="text" 
-                                    value={selectedUserEmail}
-                                    onChange={(e) => setEmail(e.target.value)}
-                                    placeholder="Username which is your email"
-                                    name="username"
-                                />
-                            {/* </Form.Control> */}
-                        
-                        </Form.Group>
+                    <form>
+                        <input type="text" placeholder='Email' value={selectedUserEmail} onChange={({ target }) => {
+                            setEmail(target.value);
+                        }}/>
+                        <input type="password" placeholder='Password' onChange={({ target }) => {
+                            setPassword(target.value);
+                        }}/>
+                        <input type="password" placeholder='Reenter Password' onChange={({ target }) => {
+                            setPasswordConfirm(target.value);
+                        }}/>
 
-                        <Form.Group>
-                            <input 
-                                type="text" 
-                                onChange={(e) => setPassword(e.target.value)}
-                                placeholder="Password"
-                                name="password"
-                            />
-                        </Form.Group>
-
-                        <Form.Group>
-                            <input 
-                                type="text" 
-                                value={passwordConfirm}
-                                onChange={(e) => setPasswordConfirm(e.target.value)}
-                                placeholder="Confirm password"
-                                name="password"
-                            />
-                        </Form.Group>
-
-                        {/* <Form.Group>
-                            <Form.Control
-                                as="textarea"
-                                placeholder="Address"
-                                rows={3}
-                                name="address"
-                            />
-                         </Form.Group> */}
-            
-                        <Form.Group>
-                            <input 
-                                type="text" 
-                                value={selectedUserTel}
-                                onChange={(e) => setTel(e.target.value)}
-                                placeholder="Phone Number"
-                                name="phone number"
-                            />
-                        </Form.Group>
-
-                        <div className="register-block-bottom">
-                            <div className="button">
-                                <Button type="submit" block className="btn" onClick={updateUser} >Save Changes</Button>
-                            </div>
-                            <div className="button">
-
-                                <Button className="btn" onClick={goHome}> Cancel </Button>
-                            </div> 
-                                
-                        </div>
-                    </Form>
+                        <input type="text" placeholder='Phone number' value={selectedUserTel} onChange={({ target }) => {
+                            setTel(target.value);
+                        }}/>
+                    </form>
                     
                     <h6 className="error-message">{errMessage}</h6>
                 </div>
-                
+                <div className="register-block-bottom">
+                    <div className="button">
+                        <Button type="submit" block className="btn" onClick={updateUser} >Save Changes</Button>
+                    </div>
+                    <div className="button">
+
+                        <Button className="btn" onClick={goHome}> Cancel </Button>
+                    </div>        
+                </div>
                
             </div>
         </div>
