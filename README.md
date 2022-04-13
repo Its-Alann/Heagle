@@ -65,15 +65,17 @@ These are the technologies used to build our e-commerce website
   - [x] Risk Assesement
   - [x] Plan for Sprint 3
 
-- [ ] Sprint 3
-  - [ ] Fully complete the 2nd user story: Managing your profile
-  - [ ] Create and work on 3rd user story
-  - [ ] Start other user stories (including defining properly the user stories, detailing tasks/risks/acceptance tests)
-  - [ ] Look into Travis or similar CI applications
-  - [ ] Implement additional change from TA feedbacks
+- [x] Sprint 3
+  - [x] Fully complete the 2nd user story: Managing your profile
+  - [x] Create and work on 3rd user story
+  - [x] Start other user stories (including defining properly the user stories, detailing tasks/risks/acceptance tests)
+  - [x] Look into Travis or similar CI applications
+  - [x] Implement additional change from TA feedbacks
 
-- [ ] Sprint 3
-- [ ] Sprint 4
+- [x] Sprint 4
+  - [x] Finish 3rd user story: Seller
+  - [x] Create payment page
+  - [x] Finish 4th user story: shopping cart 
 
 <!-- Links for buttons -->
 [contributors-shield]: https://img.shields.io/github/contributors/Its-Alann/groupD-soen341project2022.svg?style=for-the-badge
