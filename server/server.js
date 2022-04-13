@@ -286,6 +286,23 @@ app.delete("/removeAdminAction", (req, res) => {
 	
 })
 
+//Removes a cart based on its id
+app.delete("/removeCart", (req, res) => {
+	const userId = req.body.userId;
+
+	const sqlQuery =
+		"DELETE FROM e5zkwad79wtbvjrc.carts WHERE userId = ?";
+
+	db.query(sqlQuery, [userId], (err, result) => {
+		if (err) {
+			console.log(err);
+			res.send(err);
+		} else {
+			res.send("cart with id " + userId + " has been successfully deleted");
+		}
+	});
+});
+
 //Retrieve User Info from Db by email
 app.get("/getUserByEmail/:email", (req, res) => {
 	const searchEmail = req.params.email;
@@ -456,3 +473,4 @@ app.get("/getCart/:userId", (req, res)=>{
 	});
 
 })
+
