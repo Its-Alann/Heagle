@@ -64,7 +64,7 @@ function App() {
 					<Route path="/clothes/:id" element={<IndividualProductPage />} />
 					<Route path="/food/:id" element={<IndividualProductPage />} />
 					<Route path="/login" exact element={<Login/>} />
-					<Route path="/login/user/:id" element={<User/>} />
+					<Route path="/login/user/:id" element={<User update={setUpdate} updateValue={update}/>} />
 					<Route path="/register" exact element={<Register/>} />
 					<Route path="/admin" exact element={<Admin/>} />
 					<Route path="/adminAction" exact element={<AdminActions/>} />

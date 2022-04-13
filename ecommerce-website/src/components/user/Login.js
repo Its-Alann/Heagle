@@ -170,9 +170,12 @@ const Login = (props) => {
 		console.log(foundUser.id);
 
 		return (
+
 			<div className="page">
 				<h1>Login</h1>
-				<h2>{user.firstName + " is logged in"}</h2>
+				
+				{/* to display the changed made on edit page */}
+				<h2>{user.email + " - " + user.firstName + " is logged in "}</h2>
 				
 				{/* To edit: profile
 				<div className="button">
