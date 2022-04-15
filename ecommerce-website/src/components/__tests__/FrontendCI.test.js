@@ -76,7 +76,9 @@ describe('Sellers Tests', () => {
 
     test('Shows the products for sellers', () => {
 
-        const { getById } = render(<SellerProducts />, { wrapper: MemoryRouter })
+       <Router> 
+           render(<SellerProducts/>) 
+        </Router>
     })
 })
 
