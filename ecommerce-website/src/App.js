@@ -23,7 +23,7 @@ import User from "./components/user/User";
 import Marketplace from "./components/user/Marketplace";
 import EditProduct from "./components/user/EditProduct";
 import Admin from "./components/user/Admin";
-import Seller from "./components/seller/seller.js";
+import Seller from "./components/user/seller.js";
 import ShoppingCart from "./components/cart/ShoppingCart.js";
 import PaymentComponent from "./components/cart/Payment";
 import AdminActions from "./components/user/AdminActions";
