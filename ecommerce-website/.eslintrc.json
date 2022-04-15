@@ -1,0 +1,33 @@
+// {
+//     "env": {
+//         "node": true,
+//         "browser": true,
+//         "es2021": true,
+//         "jest": true
+//     },
+//     "extends": [
+//         "eslint:recommended",
+//         "plugin:react/recommended"
+//     ],
+//     "parserOptions": {
+//         "ecmaFeatures": {
+//             "jsx": true,
+//             "modules": true
+//         },
+//         "sourceType": "module"
+//     },
+//     "plugins": [
+//         "react"
+//     ],
+//     "rules": {
+//         "no-unused-vars": "warn",
+//         "react/react-in-jsx-scope": "warn",
+//         "react/no-unescaped-entities": "error",
+//         // "react/prop-types": "warn"
+//         "react/self-closing-comp": "error",
+//         "react/button-has-type": "warn",
+//         "react/no-typos":"warn",
+//         "react/no-unused-class-component-methods": "warn",
+//         "react/boolean-prop-naming": "warn"
+//     }
+// }
