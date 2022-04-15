@@ -135,10 +135,10 @@ const Register = () => {
                         <input type="text" placeholder='Email' onChange={({ target }) => {
                             setEmail(target.value);
                         }}/>
-                        <input type="text" placeholder='Phone number' onChange={({ target }) => {
+                        <input type="text" placeholder='Phone Number' onChange={({ target }) => {
                             setPhone(target.value);
                         }}/>
-                        <input type="text" placeholder='customer or seller' onChange={({ target }) => {
+                        <input type="text" placeholder='Customer or Seller' onChange={({ target }) => {
                             setUserType(target.value);
                         }}/>
                     </form>
